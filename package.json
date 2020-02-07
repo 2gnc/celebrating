@@ -1,0 +1,19 @@
+{
+  "name": "celebrating",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "tgnc <tgnc@yandex-team.ru>",
+  "license": "MIT",
+  "scripts": {
+    "start-server": "nodemon ./server/app.js",
+    "start-client": "cd ./client && yarn start",
+    "dev": "concurrently \"yarn run start-server\" \"yarn run start-client\""
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0",
+    "express": "^4.17.1"
+  }
+}
