@@ -19,3 +19,6 @@ function listenCallback(err) {
     }
     console.info(`Application started on port ${port}`);
 }
+
+
+// TODO: дописать старт приложения с NODE_ENV === 'production'
