@@ -6,3 +6,5 @@
 
 ## Development 
 Run in dev mode: `yarn run dev`
+
+## Deploy

@@ -8,7 +8,9 @@
     "start-server": "nodemon ./server/app.js",
     "start-client": "cd ./client && yarn start",
     "dev": "concurrently \"yarn run start-server\" \"yarn run start-client\"",
-    "build-client": "cd ./client && yarn build"
+    "build-client": "cd ./client && yarn build",
+    "test": "cd ./client && yarn test"
+
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
