@@ -1,4 +1,5 @@
-# Little promo =)
+# Little promo
+https://travis-ci.org/2gnc/celebrating.svg?branch=master
 
 ## Prerequisites
 * node 10+
