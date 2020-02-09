@@ -6,6 +6,10 @@ COPY . ./
 RUN build-client
 
 FROM alpine:3.11
+ENV NODE_ENV "production"
+WORKDIR /usr/local/app
 COPY --from=deps /tmp/server ./server
+COPY --from=deps /tmp/node_modules ./node_modules
+COPY --from=deps /tmp/client/build ./public
 
-# TODO: дописать сборку multistage
+CMD ["node /usr/local/app/server/app.js"]
