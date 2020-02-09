@@ -5,6 +5,7 @@
   "author": "tgnc <tgnc@yandex-team.ru>",
   "license": "MIT",
   "scripts": {
+    "deps": "yarn install && cd ./client && yarn install",
     "start-server": "nodemon ./server/app.js",
     "start-client": "cd ./client && yarn start",
     "dev": "concurrently \"yarn run start-server\" \"yarn run start-client\"",
