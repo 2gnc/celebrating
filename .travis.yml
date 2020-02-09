@@ -4,7 +4,8 @@ node_js: 10
 script:
     - "yarn deps"
     - "yarn test"
-# deploy:
-#     provider: heroku
-#     api_key:
-#         secure: "EfdxbqvpG1iO3ZepbIA+pmoEGlwTtq0jAr/g9a5Sbu2Ct0kPPdfRxEZ5NXKS5d9g8yzBwMYxpbRSw4sVtVogObFu2BGiXRI9Wj/2e5ouB7MphVd+eLBg9J4jivftpMj4NI93Twa78d/X5AtTwqqYiY1sdKqMu3J+Bi5OVzR8iPRYoRBf+P5B6ToymYOEbOo39MUa/GZHuA8/cJWBZsM2Ia3I2rd2WeJ1fuJ0KCZlSAEbfrozTCG5LgyMM4JICL8ipxAMYifFmu/z/XOfDJ5leLqIzZN1wlBxWvBoTkVkTpFPdpA6ucEqQZ8Q+/EjMDewldV1afaXHpJbprZUERqYgDIxnwEIQ8cz6OTk1Mf/yxpjnNTpofQKQ+xGaL7VlhYMa5DArKT6hVChA8ZinOzWoETU/oxqwspl1fhSJ0sDe0dUzeAVneargtqVeZpLknhVEOgSmRzaVzlBtz053bGwjHtWp3BpBeV0EGpZqRdLHVGA25oVqJG/rYEoJcBfqXP4EoGkJBuPiYyWua0ju/6AwNdcek0078yZOqOLxbK3RHa5jt2jK+KMZ9aYjAlW3vrYV+py2pT+cYzIXkpU8qtdBfhQwl1kc7Ui+aR2xgOQ3Y2g0LFjX60mHa+5UW9QgfLPKsit2gO2DiJ5OcwO8cDeD5cVJrFqEAUHC/913BWgtH8="
+deploy:
+    provider: heroku
+    api_key:
+        secure: "EfdxbqvpG1iO3ZepbIA+pmoEGlwTtq0jAr/g9a5Sbu2Ct0kPPdfRxEZ5NXKS5d9g8yzBwMYxpbRSw4sVtVogObFu2BGiXRI9Wj/2e5ouB7MphVd+eLBg9J4jivftpMj4NI93Twa78d/X5AtTwqqYiY1sdKqMu3J+Bi5OVzR8iPRYoRBf+P5B6ToymYOEbOo39MUa/GZHuA8/cJWBZsM2Ia3I2rd2WeJ1fuJ0KCZlSAEbfrozTCG5LgyMM4JICL8ipxAMYifFmu/z/XOfDJ5leLqIzZN1wlBxWvBoTkVkTpFPdpA6ucEqQZ8Q+/EjMDewldV1afaXHpJbprZUERqYgDIxnwEIQ8cz6OTk1Mf/yxpjnNTpofQKQ+xGaL7VlhYMa5DArKT6hVChA8ZinOzWoETU/oxqwspl1fhSJ0sDe0dUzeAVneargtqVeZpLknhVEOgSmRzaVzlBtz053bGwjHtWp3BpBeV0EGpZqRdLHVGA25oVqJG/rYEoJcBfqXP4EoGkJBuPiYyWua0ju/6AwNdcek0078yZOqOLxbK3RHa5jt2jK+KMZ9aYjAlW3vrYV+py2pT+cYzIXkpU8qtdBfhQwl1kc7Ui+aR2xgOQ3Y2g0LFjX60mHa+5UW9QgfLPKsit2gO2DiJ5OcwO8cDeD5cVJrFqEAUHC/913BWgtH8="
+    git: https://git.heroku.com/celebration-2020.git
