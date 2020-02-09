@@ -1,5 +1,6 @@
 # Little promo
-https://travis-ci.org/2gnc/celebrating.svg?branch=master
+[![Build Status](https://travis-ci.org/2gnc/celebrating.svg?branch=master)](https://travis-ci.org/2gnc/celebrating)
+
 
 ## Prerequisites
 * node 10+
