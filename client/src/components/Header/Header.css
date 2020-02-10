@@ -1,0 +1,46 @@
+.header {
+    background-color: var(--color-darker-bg);
+    color: var(--color-icons);
+}
+
+.header__tabs {
+    display: flex;
+    margin-bottom: 0.5rem;
+}
+
+.header__tab {
+    border-right: 1px solid var(--color-black);
+    padding: 0.5rem;
+    margin-right: 1rem;
+    display: flex;
+}
+
+.header__tab_active {
+    border-bottom: 2px solid var(--color-green);
+    color: var(--color-white);
+    background-color: var(--color-bg-highlighted)
+}
+
+.header__tab:hover {
+    cursor: pointer;
+}
+
+.header__breadcrumbs {
+    padding: 0 0.5rem 0.5rem;
+}
+
+.header__icon {
+    margin-right: 0.5rem;
+}
+
+.header__icon_js {
+    color: var(--color-yellow);
+}
+
+.header__icon_md {
+    color: var(--color-blue);
+}
+
+.header__icon .icon-wrapper {
+    opacity: 1;
+}

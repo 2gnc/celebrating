@@ -2,6 +2,7 @@ import React from 'react';
 import './Layout.css';
 import Tools from '../Tools/Tools';
 import Terminal from '../Terminal/Terminal';
+import Header from '../Header/Header';
 
 function Layout() {
     return (
@@ -10,9 +11,7 @@ function Layout() {
                 <Tools />
             </div>
             <div className='layout__main'>
-                <div className='layout__header'>
-                    header
-                </div>
+                <Header file='celebration.js' />
                 <div className='layout__box'>
                     <main className='layout__code'>
                         main

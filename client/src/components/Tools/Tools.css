@@ -4,14 +4,9 @@
     align-items: center;
     background-color: var(--color-light-bg);
     height: 100%;
+    border-right: 1px solid var(--color-dark-separator);
 }
 
 .tools__icon {
     padding: 1rem 0.6rem;
-    opacity: 0.6
-}
-
-.tools__icon:hover {
-    cursor: pointer;
-    opacity: 1
 }

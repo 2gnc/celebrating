@@ -4,6 +4,11 @@
     padding: 1rem 0 0 1rem;
 }
 
+.terminal__body {
+    height: 20vh;
+    overflow-y: scroll;
+}
+
 .terminal__header {
     text-transform: uppercase;
     position: relative;

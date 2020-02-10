@@ -14,9 +14,15 @@ body {
     --color-bg: #282c34;
     --color-light-bg: #343747;
     --color-dark-bg: #191a22;
+    --color-darker-bg: #21222d;
+    --color-dark-separator: #252525;
+    --color-bg-highlighted: #373848;
     --color-white: #ffffff;
     --color-separator: #c68dfd;
     --color-icons: #6071a7;
+    --color-blue: #09a5fa;
     --color-bubble: #ff6dc8;
     --color-green: #00ff70;
+    --color-yellow: #ffc900;
+    --colr-red: #ff6167;
 }

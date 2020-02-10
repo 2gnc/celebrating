@@ -1,19 +1,38 @@
 import React from 'react';
 import './Tools.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCodeBranch,
     faInfoCircle,
-    faTerminal
+    faTerminal,
+    faTasks
 } from '@fortawesome/free-solid-svg-icons';
-
+import IconWrapper from '../IconWrapper/IconWrapper';
 
 const Tools = () => {
     return(
         <div className='tools'>
-            <FontAwesomeIcon icon={faInfoCircle} size='2x' className="tools__icon" />
-            <FontAwesomeIcon icon={faCodeBranch} size='2x' className="tools__icon" />
-            <FontAwesomeIcon icon={faTerminal} size='2x' className="tools__icon" />
+            <IconWrapper
+                icon={faInfoCircle}
+                onClickHandler={() => console.log('click')}
+                cls='tools__icon'
+            />
+            <IconWrapper
+                icon={faCodeBranch}
+                onClickHandler={() => console.log('click')}
+                cls='tools__icon'
+            />
+            <IconWrapper
+                icon={faTerminal}
+                onClickHandler={() => console.log('click')}
+                cls='tools__icon'
+                isActive
+            />
+            <IconWrapper
+                icon={faTasks}
+                onClickHandler={() => console.log('click')}
+                cls='tools__icon'
+                isActive
+            />
         </div>
     )
 };
