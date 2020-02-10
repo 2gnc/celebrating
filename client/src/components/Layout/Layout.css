@@ -10,8 +10,13 @@
     width: 100%;
 }
 
+.layout__code {
+    border-right: 1px solid var(--color-separator);
+    width: 100%;
+}
+
 .layout__header {
-    border: 1px solid var(--color-separator);
+    /* border: 1px solid var(--color-separator); */
 }
 
 .layout__box {
@@ -20,13 +25,9 @@
 }
 
 .layout__main {
-    border: 1px solid var(--color-separator);
+    /* border: 1px solid var(--color-separator); */
 }
 
 .layout__preview {
-
-}
-
-.layout__footer {
 
 }

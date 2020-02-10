@@ -1,6 +1,7 @@
 import React from 'react';
 import './Layout.css';
 import Tools from '../Tools/Tools';
+import Terminal from '../Terminal/Terminal';
 
 function Layout() {
     return (
@@ -13,16 +14,14 @@ function Layout() {
                     header
                 </div>
                 <div className='layout__box'>
-                    <main className='layout__main'>
+                    <main className='layout__code'>
                         main
                     </main>
                     <aside className='layout__preview'>
                         aside
                     </aside>
                 </div>
-                <footer className='layout__footer'>
-                    footer
-                </footer>
+                <Terminal />
             </div>
         </div>
     );

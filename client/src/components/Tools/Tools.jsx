@@ -11,9 +11,9 @@ import {
 const Tools = () => {
     return(
         <div className='tools'>
-            <FontAwesomeIcon icon={faCodeBranch} size='2x' />
-            <FontAwesomeIcon icon={faInfoCircle} size='2x' />
-            <FontAwesomeIcon icon={faTerminal} size='2x' />
+            <FontAwesomeIcon icon={faInfoCircle} size='2x' className="tools__icon" />
+            <FontAwesomeIcon icon={faCodeBranch} size='2x' className="tools__icon" />
+            <FontAwesomeIcon icon={faTerminal} size='2x' className="tools__icon" />
         </div>
     )
 };
