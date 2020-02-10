@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Header from './Header';
+import IconWrapper from './IconWrapper';
 
-describe('Header component ', () => {
+describe('IconWrapper component ', () => {
     it('renders without errors', () => {
-        render(<Header />);
+        render(<IconWrapper />);
     });
 })
