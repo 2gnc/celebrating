@@ -1,12 +1,8 @@
 # Little promo
 [![Travis][build-badge]][build]
-[![Coveralls][coveralls-badge]][coveralls]
 
 [build-badge]: https://img.shields.io/travis/2gnc/celebrating/master.png?style=flat-square
 [build]: https://travis-ci.org/2gnc/celebrating
-
-[coveralls-badge]: https://img.shields.io/coveralls/2gnc/celebrating/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/2gnc/celebrating
 
 ## Prerequisites
 * node 10+
