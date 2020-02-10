@@ -12,9 +12,10 @@
     "dev": "concurrently \"yarn run start-server\" \"yarn run start-client\"",
     "build-client": "cd ./client && yarn build",
     "test": "cd ./client && yarn test"
-
   },
   "devDependencies": {
+    "codecov.io": "^0.1.6",
+    "coveralls": "^3.0.9",
     "nodemon": "^2.0.2"
   },
   "dependencies": {
