@@ -5,6 +5,8 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const publicPath = isProd ? path.join(__dirname, '..', 'public') : path.join(__dirname, '..', 'client', 'public');
 
+console.log(isProd, publicPath)
+
 const app = express()
     .use(express.static(publicPath))
     .get('/api/*', (req, res) => {res.json({test: 'api'})})
