@@ -3,6 +3,7 @@ WORKDIR /tmp
 COPY package.json yarn.lock ./
 RUN yarn
 COPY . .
+RUN yarn run deps-client
 RUN yarn run build-client
 
 FROM node:10.19.0-alpine as production
