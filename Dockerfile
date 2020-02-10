@@ -12,5 +12,6 @@ WORKDIR /usr/local/app
 COPY --from=deps /tmp/server ./server
 COPY --from=deps /tmp/node_modules ./node_modules
 COPY --from=deps /tmp/client/build ./public
-
+RUN ls -la 
+RUN ls -la server
 CMD ["node ./server/app.js"]
