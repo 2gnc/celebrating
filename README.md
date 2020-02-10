@@ -4,6 +4,8 @@
 [build-badge]: https://img.shields.io/travis/2gnc/celebrating/master.png?style=flat-square
 [build]: https://travis-ci.org/2gnc/celebrating
 
+Live: https://celebration-2020.herokuapp.com/
+
 ## Prerequisites
 * node 10+
 * yarn
