@@ -19,7 +19,7 @@ const wakeUp = (url, interval = 25, callback) => {
                 callback ? console.log("Callback failed: ", e.message) : null;
             }
             finally {
-                return wakeUpDyno(url, interval, callback);
+                return wakeUp(url, interval, callback);
             }
             
         }
