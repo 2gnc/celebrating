@@ -1,0 +1,17 @@
+.icon-wrapper {
+    opacity: 0.3;
+}
+
+.icon-wrapper:hover {
+    cursor: pointer;
+    opacity: 1
+}
+
+.icon-wrapper__button {
+    border: none;
+    background: none;
+}
+
+.icon-wrapper_active {
+    opacity: 1;
+}

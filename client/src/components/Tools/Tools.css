@@ -1,0 +1,12 @@
+.tools {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--color-light-bg);
+    height: 100%;
+    border-right: 1px solid var(--color-dark-separator);
+}
+
+.tools__icon {
+    padding: 1rem 0.6rem;
+}
