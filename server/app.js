@@ -10,7 +10,7 @@ const publicPath = isProd ? path.join(__dirname, '..', 'public') : path.join(__d
 
 const app = express()
     .use(express.static(publicPath))
-    .get('/api/*', (_req, res) => {res.json({test: 'api'})})
+    .get('/api/validate', (_req, res) => {res.json({test: 'api'})})
     .get('*', (_req, res) => {
         res.sendFile(path.join(publicPath, 'index.html'));
     });
