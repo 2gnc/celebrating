@@ -13,4 +13,4 @@ COPY --from=deps /tmp/server ./server
 COPY --from=deps /tmp/node_modules ./node_modules
 COPY --from=deps /tmp/client/build ./public
 
-CMD ["node server/app.js"]
+CMD ["node ./server/app.js"]
