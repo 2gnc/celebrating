@@ -5,12 +5,10 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const publicPath = isProd ? path.join(__dirname, '..', 'public') : path.join(__dirname, '..', 'client', 'public');
 
-console.log(isProd, publicPath)
-
 const app = express()
     .use(express.static(publicPath))
-    .get('/api/*', (req, res) => {res.json({test: 'api'})})
-    .get('*', (req, res) => {
+    .get('/api/*', (_req, res) => {res.json({test: 'api'})})
+    .get('*', (_req, res) => {
         res.sendFile(path.join(publicPath, 'index.html'));
     });
 
@@ -21,4 +19,4 @@ function listenCallback(err) {
         console.error('Application start error ', err);
     }
     console.log(`Application started on port ${port}`);
-}
+};
