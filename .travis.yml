@@ -4,6 +4,3 @@ node_js: 10
 script:
     - "yarn deps"
     - "yarn test"
-branches:
-    only:
-    - master
