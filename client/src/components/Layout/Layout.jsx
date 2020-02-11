@@ -4,6 +4,7 @@ import ToolsContainer from '../Tools/ToolsContainer';
 import TerminalContainer from '../Terminal/TerminalContainer';
 import HeaderContainer from '../Header/HeaderContainer';
 import Preview from '../Preview/Preview';
+import MainContainer from '../Main/MainContainer';
 
 export default class Layout extends React.Component {
     componentDidMount = () => {
@@ -20,7 +21,7 @@ export default class Layout extends React.Component {
                     <div className='layout__box'>
                         <main className={`layout__code layout__code_preview_${this.props.isPreviewShown}`}>
                             <HeaderContainer />
-                            main
+                            <MainContainer />
                         </main>
                         <aside className={`layout__preview layout__preview_preview_${this.props.isPreviewShown}`}>
                             <Preview />
