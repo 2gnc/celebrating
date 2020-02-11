@@ -27,3 +27,24 @@
     bottom: -5px;
     left: 0;
 }
+
+.terminal__item {
+
+}
+
+.terminal__item-time {
+    margin-right: 1rem;
+}
+
+.terminal__item-name {
+    margin-right: 1rem;
+}
+
+.terminal__item-message {
+
+}
+
+.marker {
+    outline: 1px solid red;
+    width: 2px;
+}

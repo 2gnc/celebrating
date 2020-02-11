@@ -6,11 +6,11 @@ const dummyLog = [
         message: 'Dummy log message 1'
     },
     {
-        timestamp: Date.now(),
+        timestamp: Date.now() + 1,
         message: 'Dummy log message 2'
     },
     {
-        timestamp: Date.now(),
+        timestamp: Date.now() + 2,
         message: 'Dummy log message 3'
     },
 ]

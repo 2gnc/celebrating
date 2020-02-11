@@ -1,7 +1,7 @@
 import React from 'react';
 import './Layout.css';
 import Tools from '../Tools/Tools';
-import Terminal from '../Terminal/Terminal';
+import TerminalContainer from '../Terminal/TerminalContainer';
 import Header from '../Header/Header';
 import Preview from '../Preview/Preview';
 
@@ -21,7 +21,7 @@ function Layout() {
                         <Preview />
                     </aside>
                 </div>
-                <Terminal />
+                <TerminalContainer />
             </div>
         </div>
     );
