@@ -5,12 +5,11 @@ import {
     compose
 } from 'redux';
 import thunk from 'redux-thunk';
-import {
-    celebrationReducer,
-    logReducer,
-    tabsReducer,
-    uiReducer
-} from '../reducers/index';
+import celebrationReducer from '../reducers/celebration-reducer';
+import logReducer from '../reducers/log-reducer';
+import tabsReducer from '../reducers/tabs-reducer';
+import uiReducer from '../reducers/ui-reducer';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

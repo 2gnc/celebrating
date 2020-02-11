@@ -1,5 +1,3 @@
-import {cloneDeep} from 'lodash';
-
 const celebrationReducerDefaultState = {
     isCelebrationShown: false,
     users: {
@@ -119,31 +117,57 @@ const celebrationReducerDefaultState = {
 export default (state = celebrationReducerDefaultState, action) => {
     switch (action.type) {
         case 'START_ANSWER_CHECK':
-            const newState = cloneDeep(state);
-            newState.users[action.userId].isCheckPending = true;
-            return newState;
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        isCheckPending: true
+                    }
+                }
+            };
         case 'SET_ANSWER_TRUE':
-            const newState = cloneDeep(state);
-            newState.users[action.userId].isCheckPending = false;
-            newState.users[action.userId].facts[action.factId] = true;
-            newState.users[action.userId].username = action.username;
-            return newState;
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        isCheckPending: false,
+                        facts: {
+                            ...state.users[action.userId].facts,
+                            [action.factId]: true
+                        },
+                        username: action.username
+                    }
+                }
+            };
         case 'SET_ANSWER_ERR':
-            const newState = cloneDeep(state);
-            newState.users[action.userId].isCheckPending = false;
-            newState.users[action.userId].facts[action.factId] = false;
-            newState.users[action.userId].error = true;
-            return newState;
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        isCheckPending: false,
+                        facts: {
+                            ...state.users[action.userId].facts,
+                            [action.factId]: false
+                        },
+                    }
+                }
+            };
         case 'SHOW_CELEBRATION':
             return {
                 ...state,
                 isCelebrationShown: true
-            }
+            };
         case 'HIDE_CELEBRATION':
             return {
                 ...state,
                 isCelebrationShown: false
-            }
+            };
         default:
             return state;
     }
