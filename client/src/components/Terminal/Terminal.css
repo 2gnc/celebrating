@@ -6,8 +6,16 @@
 }
 
 .terminal__body {
-    height: 20vh;
     overflow-y: scroll;
+    transition: height .1s ease;
+}
+
+.terminal__body_shown {
+    height: 20vh;
+}
+
+.terminal__body_hidden {
+    height: 5vh;
 }
 
 .terminal__header {

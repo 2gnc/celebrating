@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../Layout/Layout';
+import LayoutContainer from '../Layout/LayoutContainer';
 
 export default class App extends React.PureComponent {
     constructor(props) {
@@ -12,7 +12,7 @@ export default class App extends React.PureComponent {
     }
     render() {
         return (
-            <Layout />
+            <LayoutContainer />
         );
     }
 };

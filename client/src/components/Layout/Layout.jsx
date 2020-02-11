@@ -5,7 +5,7 @@ import TerminalContainer from '../Terminal/TerminalContainer';
 import HeaderContainer from '../Header/HeaderContainer';
 import Preview from '../Preview/Preview';
 
-function Layout() {
+function Layout({isPreviewShown}) {
     return (
         <div className='layout'>
             <div className='layout__tools'>
@@ -13,11 +13,11 @@ function Layout() {
             </div>
             <div className='layout__main'>
                 <div className='layout__box'>
-                    <main className='layout__code'>
+                    <main className={`layout__code layout__code_preview_${isPreviewShown}`}>
                         <HeaderContainer />
                         main
                     </main>
-                    <aside className='layout__preview'>
+                    <aside className={`layout__preview layout__preview_preview_${isPreviewShown}`}>
                         <Preview />
                     </aside>
                 </div>

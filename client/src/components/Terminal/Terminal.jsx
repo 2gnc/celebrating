@@ -24,16 +24,16 @@ export default class Terminal extends React.Component {
     };
 
     render() {
+        const terminalMod = this.props.isTerminalShown ? 'shown' : 'hidden'
         return (
             <div className='terminal'>
                 <div className='terminal__header'>
                     terminal
                 </div>
-                <div className='terminal__body'>
+                <div className={`terminal__body terminal__body_${terminalMod}`}>
                     {this.getLog()}
                 </div>
             </div>
         )
     }
-    
 }

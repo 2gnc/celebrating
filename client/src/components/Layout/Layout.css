@@ -10,11 +10,6 @@
     width: 100%;
 }
 
-.layout__code {
-    border-right: 1px solid var(--color-separator);
-    width: 50%;
-}
-
 .layout__header {
     /* border: 1px solid var(--color-separator); */
 }
@@ -28,6 +23,25 @@
     /* border: 1px solid var(--color-separator); */
 }
 
+.layout__code.layout__code_preview_false {
+    width: 100%;
+}
+
+.layout__code {
+    border-right: 1px solid var(--color-separator);
+    width: 50%;
+}
+
+.layout__preview.layout__preview_preview_false {
+    width: 0;
+    overflow: hidden;
+}
+
 .layout__preview {
     width: 50%;
+}
+
+.layout__code,
+.layout__preview {
+    transition: width .1s ease;
 }

@@ -9,18 +9,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import IconWrapper from '../IconWrapper/IconWrapper';
 
-const Tools = ({isInfoActive, isCodeActive, onInfoClick}) => {
+const Tools = ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, onFilesClick, onTerminalClick, onPreviewClick}) => {
     return(
         <div className='tools'>
             <IconWrapper
                 icon={faInfoCircle}
-                onClickHandler={() => onInfoClick('README.md')}
+                onClickHandler={() => onFilesClick('README.md')}
                 cls='tools__icon'
                 isActive={isInfoActive}
             />
             <IconWrapper
                 icon={faCode}
-                onClickHandler={() => onInfoClick('celebration.js')}
+                onClickHandler={() => onFilesClick('celebration.js')}
                 cls='tools__icon'
                 isActive={isCodeActive}
             />
@@ -31,15 +31,15 @@ const Tools = ({isInfoActive, isCodeActive, onInfoClick}) => {
             />
             <IconWrapper
                 icon={faTerminal}
-                onClickHandler={() => console.log('click')}
+                onClickHandler={() => onTerminalClick(isTerminalShown)}
                 cls='tools__icon'
-                isActive
+                isActive={isTerminalShown}
             />
             <IconWrapper
                 icon={faTasks}
-                onClickHandler={() => console.log('click')}
+                onClickHandler={() => onPreviewClick(isPreviewShown)}
                 cls='tools__icon'
-                isActive
+                isActive={isPreviewShown}
             />
         </div>
     )
