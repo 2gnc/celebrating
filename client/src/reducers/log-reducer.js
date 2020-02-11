@@ -5,8 +5,7 @@ const logReducerDefaultState = [];
 export default (state = logReducerDefaultState, action) => {
     switch (action.type) {
         case 'UPDATE_LOG':
-            const newState = [...state];
-            return concat(newState, action.log);
+            return concat([...state], action.log);
         default:
             return state;
     }

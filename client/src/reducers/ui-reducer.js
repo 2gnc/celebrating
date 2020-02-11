@@ -1,5 +1,3 @@
-import {cloneDeep} from 'lodash';
-
 const uiReducerDefaultState = {
     isPreviewShown: true,
     isTerminalShown: true,
@@ -11,37 +9,43 @@ const uiReducerDefaultState = {
 export default (state = uiReducerDefaultState, action) => {
     switch (action.type) {
         case 'SHOW_PREVIEW':
-            const newState = cloneDeep(state);
-            newState.isPreviewShown = true;
-            return newState;
+            return {
+                ...state,
+                isPreviewShown: true
+            };
         case 'HIDE_PREVIEW':
-            const newState = cloneDeep(state);
-            newState.isPreviewShown = false;
-            return newState;
+            return {
+                ...state,
+                isPreviewShown: false
+            };
         case 'SHOW_TERMINAL':
-            const newState = cloneDeep(state);
-            newState.isTerminalShown = true;
-            return newState;
+            return {
+                ...state,
+                isTerminalShown: true
+            };
         case 'HIDE_TERMINAL':
-            const newState = cloneDeep(state);
-            newState.isTerminalShown = false;
-            return newState;
+            return {
+                ...state,
+                isTerminalShown: false
+            };
         case 'START_INITIAL_DATA_FETCHING':
-            const newState = cloneDeep(state);
-            newState.isDataFetching = true;
-            return newState;
+            return {
+                ...state,
+                isDataFetching: true
+            };
         case 'SET_INITIAL_DATA':
-            const newState = cloneDeep(state);
-            newState.isDataFetching = false;
-            newState.initialData = action.data;
-            return newState;
+            return {
+                ...state,
+                isDataFetching: false,
+                initialData: action.data
+            };
         case 'SET_INITIAL_DATA_FETCHING_ERROR':
-            const newState = cloneDeep(state);
-            newState.isDataFetching = false;
-            newState.hasFetchingError = true;
-            return newState;
+            return {
+                ...state,
+                isDataFetching: false,
+                hasFetchingError: true
+            };
         default:
-            const newState = cloneDeep(state);
-            return newState;
+            return state;
     }
 };
