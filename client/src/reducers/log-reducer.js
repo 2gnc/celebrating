@@ -10,4 +10,4 @@ export default (state = logReducerDefaultState, action) => {
         default:
             return state;
     }
-}
+};
