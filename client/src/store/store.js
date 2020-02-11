@@ -8,7 +8,6 @@ import thunk from 'redux-thunk';
 import {
     celebrationReducer,
     logReducer,
-    previewReducer,
     tabsReducer,
     uiReducer
 } from '../reducers/index';
@@ -20,7 +19,6 @@ export default () => {
         combineReducers({
             celebration: celebrationReducer,
             log: logReducer,
-            preview: previewReducer,
             tabs: tabsReducer,
             ui: uiReducer
         }),
