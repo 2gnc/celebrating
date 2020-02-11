@@ -44,3 +44,9 @@ html {
 body {
     font-size: var(--size-m);
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}

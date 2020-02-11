@@ -5,8 +5,19 @@
     background-color: var(--color-light-bg);
     height: 100%;
     border-right: 1px solid var(--color-dark-separator);
+    padding: 0.5rem;
+    box-sizing: border-box;
 }
 
 .tools__icon {
     padding: 1rem 0.6rem;
+}
+
+.icon-wrapper__button.tools__icon.tools__icon_mobile_true {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.icon-wrapper__button.tools__icon.tools__icon_mobile_true:first-child {
+    padding-top: 5rem;
 }

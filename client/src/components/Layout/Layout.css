@@ -45,3 +45,12 @@
 .layout__preview {
     transition: width .1s ease;
 }
+
+.layout_mob_true .layout__code.layout__code_preview_true {
+    width: 0;
+    overflow: hidden;
+}
+
+.layout_mob_true .layout__preview.layout__preview_preview_true {
+    width: 100%;
+}
