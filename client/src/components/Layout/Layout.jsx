@@ -2,7 +2,7 @@ import React from 'react';
 import './Layout.css';
 import Tools from '../Tools/Tools';
 import TerminalContainer from '../Terminal/TerminalContainer';
-import Header from '../Header/Header';
+import HeaderContainer from '../Header/HeaderContainer';
 import Preview from '../Preview/Preview';
 
 function Layout() {
@@ -14,7 +14,7 @@ function Layout() {
             <div className='layout__main'>
                 <div className='layout__box'>
                     <main className='layout__code'>
-                        <Header file='README.md' />
+                        <HeaderContainer />
                         main
                     </main>
                     <aside className='layout__preview'>

@@ -4,14 +4,14 @@ import {faInfoCircle} from '@fortawesome/free-solid-svg-icons';
 import {faJs} from '@fortawesome/free-brands-svg-icons';
 import './Header.css';
 
-const Header = ({file}) => {
+const Header = ({file, onTabClick}) => {
     function getTab() {
         return ['celebration.js', 'README.md'].map((item) => {
             const modifier = item === file ? ' header__tab_active' : '';
             const icon = item === 'README.md' ? faInfoCircle : faJs;
             const cls = item === 'README.md' ? '_md'  : '_js';
             return (
-                <div className={`header__tab${modifier}`} key={item}>
+                <div className={`header__tab${modifier}`} key={item} onClick={() => onTabClick(item)}>
                     <IconWrapper
                         icon={icon}
                         size={'xs'}
