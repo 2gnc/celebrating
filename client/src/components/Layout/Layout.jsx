@@ -14,7 +14,7 @@ function Layout() {
             <div className='layout__main'>
                 <div className='layout__box'>
                     <main className='layout__code'>
-                        <Header file='celebration.js' />
+                        <Header file='README.md' />
                         main
                     </main>
                     <aside className='layout__preview'>
