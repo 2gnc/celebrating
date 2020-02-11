@@ -13,3 +13,16 @@ export const showTerminal = () => ({
 export const hideTerminal = () => ({
     type: 'HIDE_TERMINAL'
 });
+
+export const startInitialDataFetching = () => ({
+    type: 'START_INITIAL_DATA_FETCHING'
+});
+
+export const setInitialData = (data) => ({
+    type: 'SET_INITIAL_DATA',
+    data
+});
+
+export const setInitialDataFetchingError = () => ({
+    type: 'SET_INITIAL_DATA_FETCHING_ERROR'
+});
