@@ -1,27 +1,27 @@
 import React from 'react';
 import './Layout.css';
-import Tools from '../Tools/Tools';
-import Terminal from '../Terminal/Terminal';
-import Header from '../Header/Header';
+import ToolsContainer from '../Tools/ToolsContainer';
+import TerminalContainer from '../Terminal/TerminalContainer';
+import HeaderContainer from '../Header/HeaderContainer';
 import Preview from '../Preview/Preview';
 
-function Layout() {
+function Layout({isPreviewShown}) {
     return (
         <div className='layout'>
             <div className='layout__tools'>
-                <Tools />
+                <ToolsContainer />
             </div>
             <div className='layout__main'>
                 <div className='layout__box'>
-                    <main className='layout__code'>
-                        <Header file='README.md' />
+                    <main className={`layout__code layout__code_preview_${isPreviewShown}`}>
+                        <HeaderContainer />
                         main
                     </main>
-                    <aside className='layout__preview'>
+                    <aside className={`layout__preview layout__preview_preview_${isPreviewShown}`}>
                         <Preview />
                     </aside>
                 </div>
-                <Terminal />
+                <TerminalContainer />
             </div>
         </div>
     );

@@ -2,11 +2,20 @@
     background-color: var(--color-dark-bg);
     border-top: 1px solid var(--color-separator);
     padding: 1rem 0 0 1rem;
+    font-size: var(--size-s);
 }
 
 .terminal__body {
-    height: 20vh;
     overflow-y: scroll;
+    transition: height .1s ease;
+}
+
+.terminal__body_shown {
+    height: 20vh;
+}
+
+.terminal__body_hidden {
+    height: 5vh;
 }
 
 .terminal__header {
@@ -14,6 +23,7 @@
     position: relative;
     display: inline-block;
     margin-bottom: 1rem;
+    font-size: var(--size-m);
 }
 
 .terminal__header::after {
@@ -26,4 +36,22 @@
     position: absolute;
     bottom: -5px;
     left: 0;
+}
+
+.terminal__item {
+
+}
+
+.terminal__item-time {
+    margin-right: 1rem;
+    color: var(--color-yellow);
+}
+
+.terminal__item-name {
+    margin-right: 1rem;
+    color: var(--color-red);
+}
+
+.terminal__item-message {
+
 }
