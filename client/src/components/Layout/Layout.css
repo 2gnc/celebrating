@@ -12,7 +12,7 @@
 
 .layout__code {
     border-right: 1px solid var(--color-separator);
-    width: 100%;
+    width: 50vw;
 }
 
 .layout__header {
@@ -29,5 +29,5 @@
 }
 
 .layout__preview {
-
+    width: 50vw;
 }

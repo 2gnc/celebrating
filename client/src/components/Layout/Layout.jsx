@@ -3,6 +3,7 @@ import './Layout.css';
 import Tools from '../Tools/Tools';
 import Terminal from '../Terminal/Terminal';
 import Header from '../Header/Header';
+import Preview from '../Preview/Preview';
 
 function Layout() {
     return (
@@ -11,13 +12,13 @@ function Layout() {
                 <Tools />
             </div>
             <div className='layout__main'>
-                <Header file='celebration.js' />
                 <div className='layout__box'>
                     <main className='layout__code'>
+                        <Header file='celebration.js' />
                         main
                     </main>
                     <aside className='layout__preview'>
-                        aside
+                        <Preview />
                     </aside>
                 </div>
                 <Terminal />

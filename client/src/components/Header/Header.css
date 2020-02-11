@@ -1,6 +1,7 @@
 .header {
     background-color: var(--color-darker-bg);
     color: var(--color-icons);
+    width: 50vw;
 }
 
 .header__tabs {
