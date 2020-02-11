@@ -1,6 +1,6 @@
 import React from 'react';
 import './Layout.css';
-import Tools from '../Tools/Tools';
+import ToolsContainer from '../Tools/ToolsContainer';
 import TerminalContainer from '../Terminal/TerminalContainer';
 import HeaderContainer from '../Header/HeaderContainer';
 import Preview from '../Preview/Preview';
@@ -9,7 +9,7 @@ function Layout() {
     return (
         <div className='layout'>
             <div className='layout__tools'>
-                <Tools />
+                <ToolsContainer />
             </div>
             <div className='layout__main'>
                 <div className='layout__box'>

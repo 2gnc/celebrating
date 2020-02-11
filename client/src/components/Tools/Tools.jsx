@@ -4,17 +4,25 @@ import {
     faCodeBranch,
     faInfoCircle,
     faTerminal,
-    faTasks
+    faTasks,
+    faCode
 } from '@fortawesome/free-solid-svg-icons';
 import IconWrapper from '../IconWrapper/IconWrapper';
 
-const Tools = () => {
+const Tools = ({isInfoActive, isCodeActive, onInfoClick}) => {
     return(
         <div className='tools'>
             <IconWrapper
                 icon={faInfoCircle}
-                onClickHandler={() => console.log('click')}
+                onClickHandler={() => onInfoClick('README.md')}
                 cls='tools__icon'
+                isActive={isInfoActive}
+            />
+            <IconWrapper
+                icon={faCode}
+                onClickHandler={() => onInfoClick('celebration.js')}
+                cls='tools__icon'
+                isActive={isCodeActive}
             />
             <IconWrapper
                 icon={faCodeBranch}
