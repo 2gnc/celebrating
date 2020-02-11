@@ -3,9 +3,9 @@ import './Preview.css';
 
 const Preview = () => {
     return (
-        <>
+        <div className='preview'>
             Preview here
-        </>
+        </div>
     )
 };
 

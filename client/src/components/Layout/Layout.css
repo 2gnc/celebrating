@@ -28,7 +28,6 @@
 }
 
 .layout__code {
-    border-right: 1px solid var(--color-separator);
     width: 50%;
 }
 
@@ -53,4 +52,8 @@
 
 .layout_mob_true .layout__preview.layout__preview_preview_true {
     width: 100%;
+}
+
+.layout_mob_false .layout__preview {
+    border-left: 1px solid var(--color-separator);
 }
