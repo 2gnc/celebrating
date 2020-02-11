@@ -1,14 +1,16 @@
 import React from 'react';
+import {DateTime} from 'luxon';
 import './Terminal.css';
 
 export default class Terminal extends React.Component {
     getLog = () => {
         return this.props.log.map((item) => {
             const [name, ...message] = item.message.split(' ');
+            const date = DateTime.fromMillis(item.timestamp).toHTTP();
             return (
                 <div className='terminal__item' key={item.timestamp}>
                     <span className='terminal__item-time'>
-                        {item.timestamp}
+                        {date}
                     </span>
                     <span className='terminal__item-name'>
                         {name}

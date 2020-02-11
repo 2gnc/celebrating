@@ -1,5 +1,5 @@
 .layout {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
 }
@@ -12,7 +12,7 @@
 
 .layout__code {
     border-right: 1px solid var(--color-separator);
-    width: 50vw;
+    width: 50%;
 }
 
 .layout__header {
@@ -29,5 +29,5 @@
 }
 
 .layout__preview {
-    width: 50vw;
+    width: 50%;
 }
