@@ -17,10 +17,15 @@ export const setAnswerFalse = (userId, factId) => ({ //string
     factId
 });
 
-export const showCelebration = () => ({
-    type: 'SHOW_CELEBRATION'
+export const startInitialCelebrationDataFetching = () => ({
+    type: 'START_INITIAL_CELEBRATION_DATA_FETCHING'
 });
 
-export const hideCelebration = () => ({
-    type: 'HIDE_CELEBRATION'
+export const setInitialCelebrationData = (data) => ({
+    type: 'SET_INITIAL_CELEBRATION_DATA',
+    data
+});
+
+export const setInitialDataCelebrationFetchingError = () => ({
+    type: 'SET_INITIAL_CELEBRATION_DATA_FETCHING_ERROR'
 });

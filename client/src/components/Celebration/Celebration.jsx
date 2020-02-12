@@ -2,11 +2,11 @@ import React from 'react';
 import './Celebration.css';
 import Fact from '../Fact/Fact';
 
-export default ({facts}) => {
+export default ({users, order}) => {
     return (
         <div className='celebration'>
             {
-                facts.map((fact) => (
+                users.map((fact) => ( // TODO другая структура данных, определенный порядок тут надо переделать
                     <Fact
                         key={fact.factId}
                         factId={fact.factId}

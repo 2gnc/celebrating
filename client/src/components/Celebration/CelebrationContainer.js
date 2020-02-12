@@ -2,7 +2,8 @@ import {connect} from 'react-redux';
 import Celebration from './Celebration';
 
 const mapStateToProps = (state) => ({
-    facts: state.ui.factsToShow
+    users: state.celebration.users,
+    order: state.celebration.usersOrderToShow
 });
 
 const mapDispatchToProps = (dispatch) => ({});
