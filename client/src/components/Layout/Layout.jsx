@@ -3,7 +3,7 @@ import './Layout.css';
 import ToolsContainer from '../Tools/ToolsContainer';
 import TerminalContainer from '../Terminal/TerminalContainer';
 import HeaderContainer from '../Header/HeaderContainer';
-import Preview from '../Preview/Preview';
+import PreviewContainer from '../Preview/PreviewContainer';
 import MainContainer from '../Main/MainContainer';
 
 export default class Layout extends React.Component {
@@ -24,7 +24,7 @@ export default class Layout extends React.Component {
                             <MainContainer />
                         </main>
                         <aside className={`layout__preview layout__preview_preview_${this.props.isPreviewShown}`}>
-                            <Preview />
+                            <PreviewContainer />
                         </aside>
                     </div>
                     <TerminalContainer />

@@ -58,7 +58,7 @@ const celebrationReducerDefaultState = {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: 'username' //
         },
         '02': {
             isCheckPending: false,
