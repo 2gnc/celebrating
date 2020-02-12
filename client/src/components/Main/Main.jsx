@@ -1,7 +1,7 @@
 import React from 'react';
 import './Main.css';
 import CelebrationContainer from '../Celebration/CelebrationContainer';
-import Readme from '../Readme/Readme.jsx';
+import Readme from '../Readme/Readme';
 
 export default class Main extends React.PureComponent {
     constructor(props) {
