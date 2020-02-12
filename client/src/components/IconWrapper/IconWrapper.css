@@ -9,8 +9,25 @@
 .icon-wrapper__button {
     border: none;
     background: none;
+    position: relative;
 }
 
 .icon-wrapper_active {
     opacity: 1;
+}
+
+.icon-wrapper__counter {
+    position: absolute;
+    display: inline-block;
+    min-width: 22px;
+    text-align: center;
+    bottom: 0;
+    right: 0;
+    padding: 0.2rem;
+    border-radius: 50%;
+    background-color: var(--color-bubble);
+    border: 1px solid var(--color-dark-bg);
+    color: var(--color-white);
+    font-size: var(--size-s);
+    font-weight: bold;
 }

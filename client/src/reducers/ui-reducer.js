@@ -1,9 +1,7 @@
 const uiReducerDefaultState = {
     isPreviewShown: true,
     isTerminalShown: true,
-    isDataFetching: false,
-    hasFetchingError: false,
-    initialData: undefined
+    isCelebrationShown: false
 };
 
 export default (state = uiReducerDefaultState, action) => {
@@ -28,22 +26,15 @@ export default (state = uiReducerDefaultState, action) => {
                 ...state,
                 isTerminalShown: false
             };
-        case 'START_INITIAL_DATA_FETCHING':
+        case 'SHOW_CELEBRATION':
             return {
                 ...state,
-                isDataFetching: true
+                isCelebrationShown: true
             };
-        case 'SET_INITIAL_DATA':
+        case 'HIDE_CELEBRATION':
             return {
                 ...state,
-                isDataFetching: false,
-                initialData: action.data
-            };
-        case 'SET_INITIAL_DATA_FETCHING_ERROR':
-            return {
-                ...state,
-                isDataFetching: false,
-                hasFetchingError: true
+                isCelebrationShown: false
             };
         default:
             return state;

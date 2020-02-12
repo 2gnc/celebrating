@@ -1,0 +1,20 @@
+.main {
+    padding: 0.5rem;
+    line-height: 3rem;
+    display: flex;
+    max-height: calc(100vh - 20vh - 6rem);
+    overflow-y: scroll;
+}
+
+.main__row-count {
+    width: 2rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-icons);
+    font-size: var(--size-s);
+    margin-right: 1rem;
+}
+
+.main__content {
+}

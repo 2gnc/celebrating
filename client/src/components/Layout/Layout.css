@@ -28,7 +28,7 @@
 }
 
 .layout__code {
-    width: 50%;
+    width: 60%;
 }
 
 .layout__preview.layout__preview_preview_false {
@@ -37,7 +37,7 @@
 }
 
 .layout__preview {
-    width: 50%;
+    width: 40%;
 }
 
 .layout__code,

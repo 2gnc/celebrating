@@ -1,12 +1,15 @@
 import React from 'react';
 import './Preview.css';
 
-const Preview = () => {
+export default ({users}) => {
     return (
         <div className='preview'>
-            Preview here
+            {
+                Object.entries(users)
+                    .filter((user) => user[1].username)
+                    .map((user) => <div key={user[1].username}>{user[1].username}</div>
+                    )
+            }
         </div>
     )
 };
-
-export default Preview;

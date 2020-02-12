@@ -1,0 +1,16 @@
+.fact {
+
+}
+
+.fact__input {
+    background-color: var(--color-dark-bg);
+    outline: none;
+    border: none;
+    height: 2.5rem;
+    caret-color: var(--color-green);
+    padding-left: 0.5rem;
+    margin-left: 1.5rem;
+    color: var(--color-green);
+    font-size: var(--size-m);
+    letter-spacing: 2px;
+}
