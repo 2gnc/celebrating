@@ -5,15 +5,18 @@ import Fact from '../Fact/Fact';
 export default ({users, order}) => {
     return (
         <div className='celebration'>
+            {!order.length && <span className='celebration__loading'>Loading...</span>}
             {
-                users.map((fact) => ( // TODO другая структура данных, определенный порядок тут надо переделать
-                    <Fact
-                        key={fact.factId}
-                        factId={fact.factId}
-                        text={fact.factText}
-                        id={fact.id}
-                    />
-                ))
+                order.map((num) => {
+                    return (
+                        <Fact
+                            key={num}
+                            factId={users[num].fact.factId}
+                            text={users[num].fact.factText}
+                            id={num}
+                        />
+                    )
+                })
             }
         </div>
     )
