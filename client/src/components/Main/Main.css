@@ -2,6 +2,8 @@
     padding: 0.5rem;
     line-height: 2.5rem;
     display: flex;
+    max-height: calc(100vh - 20vh - 6rem);
+    overflow-y: scroll;
 }
 
 .main__row-count {
@@ -15,5 +17,4 @@
 }
 
 .main__content {
-    overflow-y: scroll;
 }
