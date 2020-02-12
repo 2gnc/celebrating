@@ -11,7 +11,8 @@ const mapStateToProps = (state) => ({
     isCodeActive: state.tabs.activeTab === 'celebration.js',
     isTerminalShown: state.ui.isTerminalShown,
     isPreviewShown: state.ui.isPreviewShown,
-    isMobile: platform && platform.type === 'mobile'
+    isMobile: platform && platform.type === 'mobile',
+    actionsCount: state.celebration.actionsCount
 });
 
 const mapDispatchToProps = (dispatch) => ({

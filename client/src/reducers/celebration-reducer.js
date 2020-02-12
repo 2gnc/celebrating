@@ -51,7 +51,8 @@ const dummyFacts = {
 const celebrationReducerDefaultState = {
     isDataFetching: false,
     hasFetchingError: false,
-    usersToShow: [], // shuffled array of users
+    actionsCount: 0,
+    usersOrder: [], // shuffled array of users
     users: {
         '01': {
             isCheckPending: false,
@@ -174,7 +175,7 @@ export default (state = celebrationReducerDefaultState, action) => {
             return {
                 ...state,
                 users: usersWithFacts,
-                usersToShow: shuffle(Object.keys(usersWithFacts))
+                usersOrder: shuffle(Object.keys(usersWithFacts))
             };
         case 'SET_INITIAL_CELEBRATION_DATA_FETCHING_ERROR':
             return {
@@ -182,6 +183,11 @@ export default (state = celebrationReducerDefaultState, action) => {
                 isDataFetching: false,
                 hasFetchingError: true
             };
+        case 'UPDATE_ACTIONS_COUNT':
+            return {
+                ...state,
+                actionsCount: state.actionsCount + action.count
+            }
         default:
             return state;
     }

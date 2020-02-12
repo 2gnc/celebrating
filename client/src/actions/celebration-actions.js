@@ -29,3 +29,8 @@ export const setInitialCelebrationData = (data) => ({
 export const setInitialDataCelebrationFetchingError = () => ({
     type: 'SET_INITIAL_CELEBRATION_DATA_FETCHING_ERROR'
 });
+
+export const updateActionsCount = (count) => ({
+    type: 'UPDATE_ACTIONS_COUNT',
+    count
+})

@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import IconWrapper from '../IconWrapper/IconWrapper';
 
-const Tools = ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isMobile, onFilesClick, onTerminalClick, onPreviewClick}) => {
+export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isMobile, onFilesClick, onTerminalClick, onPreviewClick, actionsCount}) => {
     const iconClass = `tools__icon tools__icon_mobile_${isMobile}`;
     return(
         <div className='tools'>
@@ -29,6 +29,7 @@ const Tools = ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isM
                 icon={faCodeBranch}
                 onClickHandler={() => console.log('click')}
                 cls={iconClass}
+                counter={actionsCount}
             />
             <IconWrapper
                 icon={faTerminal}
@@ -45,5 +46,3 @@ const Tools = ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isM
         </div>
     )
 };
-
-export default Tools;
