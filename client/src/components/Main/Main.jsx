@@ -1,5 +1,7 @@
 import React from 'react';
 import './Main.css';
+import Quiz from '../Quiz/Quiz.jsx';
+import Readme from '../Readme/Readme.jsx';
 
 export default class Main extends React.PureComponent {
     constructor(props) {
@@ -20,7 +22,8 @@ export default class Main extends React.PureComponent {
                     {getRows(this.state.rows)}
                 </div>
                 <div className='main__content'>
-123
+                    {this.props.tab === 'README.md' && <Readme />}
+                    {this.props.tab === 'celebration.js' && <Quiz />}
                 </div>
 
             </div>
