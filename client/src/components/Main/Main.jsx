@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css';
-import Celebration from '../Celebration/Celebration';
+import CelebrationContainer from '../Celebration/CelebrationContainer';
 import Readme from '../Readme/Readme.jsx';
 
 export default class Main extends React.PureComponent {
@@ -23,7 +23,7 @@ export default class Main extends React.PureComponent {
                 </div>
                 <div className='main__content'>
                     {this.props.tab === 'README.md' && <Readme />}
-                    {this.props.tab === 'celebration.js' && <Celebration />}
+                    {this.props.tab === 'celebration.js' && <CelebrationContainer />}
                 </div>
 
             </div>

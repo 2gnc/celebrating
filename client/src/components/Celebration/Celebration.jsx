@@ -1,12 +1,20 @@
 import React from 'react';
 import './Celebration.css';
+import Fact from '../Fact/Fact';
 
-const Celebration = () => {
+export default ({facts}) => {
     return (
         <div className='celebration'>
-            Celebration
+            {
+                facts.map((fact) => (
+                    <Fact
+                        key={fact.factId}
+                        factId={fact.factId}
+                        text={fact.factText}
+                        id={fact.id}
+                    />
+                ))
+            }
         </div>
     )
 };
-
-export default Celebration;

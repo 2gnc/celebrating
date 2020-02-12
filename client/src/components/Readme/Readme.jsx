@@ -2,7 +2,7 @@ import React from 'react';
 import './Readme.css';
 import texts from './texts.js'
 
-const Readme = () => {
+export default () => {
     return (
         <div className='readme'>
             {getContent()}
@@ -18,6 +18,4 @@ function getContent() {
             </div>
         ) : <br key={i} />
     })
-}
-
-export default Readme;
+};

@@ -1,6 +1,6 @@
 .main {
     padding: 0.5rem;
-    line-height: 2.5rem;
+    line-height: 3rem;
     display: flex;
     max-height: calc(100vh - 20vh - 6rem);
     overflow-y: scroll;
