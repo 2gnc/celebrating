@@ -3,6 +3,7 @@ import './Celebration.css';
 import Fact from '../Fact/Fact';
 
 export default ({users, order}) => {
+    console.log(users, order)
     return (
         <div className='celebration'>
             {!order.length && <span className='celebration__loading'>Loading...</span>}

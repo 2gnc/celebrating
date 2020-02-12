@@ -3,7 +3,7 @@ import Celebration from './Celebration';
 
 const mapStateToProps = (state) => ({
     users: state.celebration.users,
-    order: state.celebration.usersOrderToShow
+    order: state.celebration.usersToShow
 });
 
 const mapDispatchToProps = (dispatch) => ({});

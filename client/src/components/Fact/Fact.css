@@ -10,4 +10,7 @@
     caret-color: var(--color-green);
     padding-left: 0.5rem;
     margin-left: 1.5rem;
+    color: var(--color-green);
+    font-size: var(--size-m);
+    letter-spacing: 2px;
 }

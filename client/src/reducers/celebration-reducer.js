@@ -51,7 +51,7 @@ const dummyFacts = {
 const celebrationReducerDefaultState = {
     isDataFetching: false,
     hasFetchingError: false,
-    usersOrderToShow: [], // shuffled array of users
+    usersToShow: [], // shuffled array of users
     users: {
         '01': {
             isCheckPending: false,
