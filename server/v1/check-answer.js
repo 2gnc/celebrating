@@ -19,3 +19,6 @@ module.exports.checkAnswerHandler = (req, res, next) => {
         result
     });
 };
+
+// TODO - если валидация правильная, записать в БД
+// (users.facts.factN.guessed = true)

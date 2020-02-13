@@ -1,7 +1,8 @@
 const path = require('path');
 const express = require('express');
-const wakeUp = require('./utils/wake-up.js');
+const wakeUp = require('./utils/wake-up');
 const {v1Router} = require('./v1');
+require('./db/setup');
 
 const port = process.env.PORT || 5000;
 const isProd = process.env.NODE_ENV === 'production';
@@ -12,7 +13,7 @@ const publicPath = isProd ? path.join(__dirname, '..', 'public') : path.join(__d
 const app = express()
     .use(express.static(publicPath))
     .use('/v1', v1Router)
-    .get('*', (_req, res) => {
+    .get('/', (_req, res) => {
         res.sendFile(path.join(publicPath, 'index.html'));
     });
 
