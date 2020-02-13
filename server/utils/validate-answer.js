@@ -14,6 +14,6 @@ const colleagues = {
 
 function validateAnswer(id, answer) {
     return answer === colleagues[id];
-}
+};
 
-export default validateAnswer;
+module.exports = {validateAnswer, colleagues};
