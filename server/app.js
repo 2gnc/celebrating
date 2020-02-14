@@ -4,7 +4,7 @@ const wakeUp = require('./utils/wake-up');
 const {v1Router} = require('./v1');
 require('./db/setup');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5555;
 const isProd = process.env.NODE_ENV === 'production';
 const URL = 'https://celebration-2020.herokuapp.com/';
 
