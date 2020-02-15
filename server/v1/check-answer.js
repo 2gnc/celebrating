@@ -1,7 +1,10 @@
 const {badRequest} = require('@hapi/boom');
 const Joi = require('@hapi/joi');
+const {wrapAsyncMiddleware} = require('../utils/wrap-async-middleware');
 const {validateAnswer} = require('../utils/validate-answer');
-const writeLog = require('../utils/write-log');
+const writeBase = require('../utils/firebase/write-base');
+const updtateBase = require('../utils/firebase/update-base');
+const checkCelebration = require('../utils/firebase/check-celebration');
 
 const requestSchema = Joi.object({
     id: Joi.string().required(),
@@ -9,19 +12,32 @@ const requestSchema = Joi.object({
     username: Joi.string().required()
 }).options({stripUnknown: true});
 
-module.exports.checkAnswerHandler = (req, res, next) => {
+module.exports.checkAnswerHandler = wrapAsyncMiddleware(async (req, res, next) => {
     const validationResult = requestSchema.validate(req.query);
     if (validationResult.error) {
         throw badRequest(validationResult.error.message);
     }
-    const {id, username} = validationResult.value;
+    let {username} = validationResult.value;
+    const {id, factId} = validationResult.value;
+    
     const result = validateAnswer(id, username);
-    const message = result ? {username, message: 'was celebrated'} : {username: 'anonymous', message: 'Didn`t guessed'};
-    writeLog(message);
-    res.json({
+    
+    let message = '';
+    if (result) {
+        const isCelebrated = checkCelebration(id, factId);
+        if (isCelebrated) {
+            return res.json({
+                result
+            });
+        }
+        message = 'was celebrated';
+        await updtateBase(`facts/${id}`, {isGuessed: true});
+    } else {
+        username = 'anonymous';
+        message = 'didn`t guessed';
+    }
+    await writeBase('logs', {username, message});
+    return res.json({
         result
     });
-};
-
-// TODO - если валидация правильная, записать в БД
-// (users.facts.factN.guessed = true)
+});
