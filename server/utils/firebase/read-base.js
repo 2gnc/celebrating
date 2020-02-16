@@ -1,10 +1,10 @@
 const {internal} = require('@hapi/boom');
 const {db} = require('../../db/setup');
 
-const writeBase = async (destination, data) => {
+const readBase = async (destination) => {
     try {
-        await db.ref(destination).push(data);
-        return console.log(`${destination} updated`);
+        const data = await db.ref(destination).once('value');
+        return data ? data.val() : null;
     }
     catch (err) {
         console.error(err);
@@ -12,4 +12,4 @@ const writeBase = async (destination, data) => {
     }
 }
 
-module.exports = writeBase;
+module.exports = readBase;
