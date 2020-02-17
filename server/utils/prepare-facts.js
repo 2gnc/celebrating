@@ -1,8 +1,11 @@
 const updateBase = require('./firebase/update-base');
+const {internal} = require('@hapi/boom');
 
 const prepareFacts = async (facts) => {
-    const pickedFacts =[];
-        Object.entries(facts).forEach((userFacts) => {
+    try {
+        const pickedFacts =[];
+        const parcedFacts = Object.entries(facts);
+        for (const userFacts of parcedFacts) {
             const [userId,facts] = userFacts;
             const unguessedFacts = Object.entries(facts).filter((facts) => {
                 const [,fact] = facts;
@@ -22,10 +25,14 @@ const prepareFacts = async (facts) => {
                 const data = mapFact(userId, unguessedFacts[0]);
                 pickedFacts.push(data);
                 // меняем ему статус в БД
-                updateBase(`facts/${userId}/${unguessedFacts[0][0]}`, {isGuessing: true});
-            }   
-        });
-    return pickedFacts;
+                await updateBase(`facts/${userId}/${unguessedFacts[0][0]}`, {isGuessing: true});
+            }
+        }
+        return pickedFacts;
+    } catch (e) {
+        console.log(e);
+        throw internal();
+    }
 }
 
 function mapFact(userid, fact) { // TODO тут поправить баг
