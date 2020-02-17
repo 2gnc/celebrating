@@ -1,53 +1,6 @@
 import shuffle from '../helpers/shuffleArr';
 import mapFactsToUsers from '../helpers/mapsFactsToUsers';
 
-const dummyFacts = {
-    '01' :{
-        factId: '01-1',
-        factText: 'Lorem ipsum dolor sit amet.'
-    },
-    '02': {
-        factId: '02-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.'
-    },
-    '03': {
-        factId: '03-2',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, porro.'
-    },
-    '04': {
-        factId: '04-3',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
-    },
-    '05': {
-        factId: '05-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, reiciendis nihil.'
-    },
-    '06': {
-        factId: '06-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing.'
-    },
-    '07': {
-        factId: '07-2',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti harum veritatis corporis.'
-    },
-    '08': {
-        factId: '08-2',
-        factText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quae quia aliquam!'
-    },
-    '09': {
-        factId: '09-2',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, harum.'
-    },
-    '10': {
-        factId: '10-2',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, fugit!'
-    },
-    '11': {
-        factId: '11-1',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, fugit!vv'
-    }
-};
-
 const celebrationReducerDefaultState = {
     isDataFetching: false,
     hasFetchingError: false,
@@ -58,7 +11,7 @@ const celebrationReducerDefaultState = {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: 'username' //
+            username: undefined
         },
         '02': {
             isCheckPending: false,
@@ -167,8 +120,8 @@ export default (state = celebrationReducerDefaultState, action) => {
                 ...state,
                 isDataFetching: true
             };
-        case 'SET_INITIAL_CELEBRATION_DATA': //data, ожидаем {facts: {}, guessedUsers: [{id: '01', username: 'tgnc'}]}
-            const usersWithFacts = mapFactsToUsers(action.data.facts || dummyFacts, celebrationReducerDefaultState.users);
+        case 'SET_INITIAL_CELEBRATION_DATA':
+            const usersWithFacts = mapFactsToUsers(action.data.facts, celebrationReducerDefaultState.users);
             action.data.guessedUsers.forEach((user) => {
                 usersWithFacts[user.id].username = user.username
             });

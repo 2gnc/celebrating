@@ -26,8 +26,8 @@ const prepareFacts = async (facts) => {
                         username
                     });
                 }
-                pickedFacts[userId] = {};
-                pickedFacts[userId][factId] = fact;
+                pickedFacts[userId] = fact;
+                pickedFacts[userId].factId = factId;
                 continue;
             }
             if (unguessedFacts.length) {

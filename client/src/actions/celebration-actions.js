@@ -17,9 +17,21 @@ export const setAnswerFalse = (userId, factId) => ({ //string
     factId
 });
 
-export const startInitialCelebrationDataFetching = () => ({
-    type: 'START_INITIAL_CELEBRATION_DATA_FETCHING'
-});
+export const startInitialCelebrationDataFetching = () => {
+    return async (dispatch) => {
+        try {
+            const data = await fetch('/v1/initialize');
+            if (data.status !== 200) {
+                throw new Error(data.status);
+            }
+            const result = await data.json();
+            return dispatch(setInitialCelebrationData(result));
+        }
+        catch (err) {
+            return dispatch(setInitialDataCelebrationFetchingError());
+        }
+    }
+};
 
 export const setInitialCelebrationData = (data) => ({
     type: 'SET_INITIAL_CELEBRATION_DATA',
