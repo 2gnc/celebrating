@@ -23,13 +23,24 @@
     color: var(--color-green);
     display: inline-block;
     margin-left: 1.5rem;
+    transition: all 2s linear;
 }
 
 .fact__icon.fact__icon_animated {
     animation-name: blink;
     animation-duration: 2s;
     animation-iteration-count: infinite;
-    transition: all 2s linear;
+}
+
+.fact__icon.fact__icon_guessed {
+    color: var(--color-green);
+    transform: rotate(-30deg);
+}
+
+.fact__icon.fact__icon_error {
+    color: var(--color-white);
+    transform: rotate(30deg);
+    opacity: 0.5;
 }
 
 @keyframes blink {
@@ -48,4 +59,17 @@
         transform: rotate(-30deg);
         opacity: 1;
     }
+}
+
+.fact__username {
+    color: var(--color-green);
+    font-weight: bold;
+    margin-left: 1.5rem;
+}
+
+.fact__errormsg {
+    color: var(--color-black);
+    opacity: 0.5;
+    margin-left: 1.5rem;
+    font-size: var(--size-s);
 }

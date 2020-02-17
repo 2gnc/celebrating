@@ -8,7 +8,7 @@ const celebrationReducerDefaultState = {
     usersOrder: [], // shuffled array of users
     users: {
         '01': {
-            isCheckPending: true, // TEMP
+            isCheckPending: false,
             error: false,
             fact: undefined,
             username: undefined, 
@@ -89,7 +89,7 @@ const celebrationReducerDefaultState = {
 
 export default (state = celebrationReducerDefaultState, action) => {
     switch (action.type) {
-        case 'START_ANSWER_CHECK':
+        case 'STARTED_ANSWER_CHECK':
             return {
                 ...state,
                 users: {
@@ -114,7 +114,7 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-        case 'SET_ANSWER_ERR':
+        case 'SET_ANSWER_ERR', 'SET_ANSWER_FALSE':
             return {
                 ...state,
                 users: {
@@ -126,6 +126,19 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
+        case 'SET_ANSWER_TRUE':
+            
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        isCheckPending: false,
+                        username: action.username
+                    }
+                }
+            }
         case 'STARTED_INITIAL_CELEBRATION_DATA':
             return {
                 ...state,

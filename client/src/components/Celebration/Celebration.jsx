@@ -7,7 +7,7 @@ export default class Celebration extends React.Component /*({users, order, start
         this.props.startDataFetching();
     }
     render() {
-        const {users, order, isDataFetching, onAnswer, onInputChange, inputsValues} = this.props;
+        const {users, order, isDataFetching, onAnswer, onInputChange} = this.props;
         return (
             <div className='celebration'>
                 {isDataFetching && <span className='celebration__loading'>Loading...</span>}
@@ -23,6 +23,8 @@ export default class Celebration extends React.Component /*({users, order, start
                                 value={users[num].value}
                                 onChange={onInputChange}
                                 isCheckPending={users[num].isCheckPending}
+                                hasError={users[num].error}
+                                username={users[num].username}
                             />
                         )
                     })

@@ -4,22 +4,32 @@
 //     factId,
 //     username
 // });
-export const startAnswerCheck = (userId, factId, username) => { //string, string
+export const startAnswerCheck = (userId, factId, username) => {
     return async (dispatch) => {
         try {
-            const data = await fetch('/v1/check_answer');
+            dispatch(startedAnswerCheck(userId));
+            const data = await fetch(`/v1/check_answer?id=${userId}&factId=${factId}&username=${username}`);
             if (data.status !== 200) {
                 throw new Error();
             }
-            const result = await data.json();
-            console.log(result);
+            const {result} = await data.json();
+            if (!result) {
+                dispatch(setAnswerFalse(userId, factId));
+            } else {
+                dispatch(setAnswerTrue(userId, username));
+            }
         } catch (err) {
             return dispatch(setAnswerErr(userId, factId));
         }
     }
 };
 
-export const setAnswerErr = (userId, factId) => ({ //string, string
+export const startedAnswerCheck = (userId) => ({
+    type: 'STARTED_ANSWER_CHECK',
+    userId
+});
+
+export const setAnswerErr = (userId, factId) => ({
     type: 'SET_ANSWER_ERR',
     userId,
     factId
@@ -31,7 +41,11 @@ export const setAnswerFalse = (userId, factId) => ({ //string
     factId
 });
 
-// TODO Set answer true
+export const setAnswerTrue = (userId, username) => ({
+    type: 'SET_ANSWER_TRUE',
+    username,
+    userId
+});
 
 export const startInitialCelebrationDataFetching = () => {
     return async (dispatch) => {
@@ -73,3 +87,5 @@ export const updateUsernameInput = (userId, value) => ({ // userId, value
     userId,
     value
 });
+
+// TODO на сервере не выставляется isGuessed в true - поправить
