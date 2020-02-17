@@ -1,19 +1,8 @@
-const colleagues = {
-    '01': 'vsesh',
-    '02': 'strelga',
-    '03': 'maderwin',
-    '04': 'doni-rio',
-    '05': 'doroginin',
-    '06': 'liberateai',
-    '07': 'dodev',
-    '08': 'a-aleshkov',
-    '09': 'p-nemykin',
-    '10': 'devfirsov',
-    '11': 'sasha-frolov'
+const readBase = require('./firebase/read-base');
+
+const validateAnswer = async (id, answer) => {
+    const check = await readBase(`usernames/${id}`);
+    return answer === check;
 }
 
-function validateAnswer(id, answer) {
-    return answer === colleagues[id];
-};
-
-module.exports = {validateAnswer, colleagues};
+module.exports = validateAnswer;

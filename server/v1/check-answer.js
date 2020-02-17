@@ -1,7 +1,7 @@
 const {badRequest} = require('@hapi/boom');
 const Joi = require('@hapi/joi');
 const {wrapAsyncMiddleware} = require('../utils/wrap-async-middleware');
-const {validateAnswer} = require('../utils/validate-answer');
+const validateAnswer = require('../utils/validate-answer');
 const writeBase = require('../utils/firebase/write-base');
 const updtateBase = require('../utils/firebase/update-base');
 const checkCelebration = require('../utils/firebase/check-celebration');
@@ -20,7 +20,7 @@ module.exports.checkAnswerHandler = wrapAsyncMiddleware(async (req, res, next) =
     let {username} = validationResult.value;
     const {id, factId} = validationResult.value;
     
-    const result = validateAnswer(id, username);
+    const result = await validateAnswer(id, username);
     
     let message = '';
     if (result) {

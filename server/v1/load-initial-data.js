@@ -3,7 +3,6 @@ const {internal, notFound} = require('@hapi/boom');
 const readBase = require('../utils/firebase/read-base');
 const prepareFacts = require('../utils/prepare-facts');
 
-
 module.exports.loadInitialData = wrapAsyncMiddleware(async (_req, res) => {
     try {
         // получаем неугаданные факты
