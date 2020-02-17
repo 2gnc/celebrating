@@ -8,70 +8,81 @@ const celebrationReducerDefaultState = {
     usersOrder: [], // shuffled array of users
     users: {
         '01': {
-            isCheckPending: false,
+            isCheckPending: true, // TEMP
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined, 
+            value: ''
         },
         '02': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '03': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '04': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '05': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '06': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '07': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '08': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '09': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '10': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '11': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         }
     }
 }
@@ -115,7 +126,7 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-        case 'START_INITIAL_CELEBRATION_DATA_FETCHING':
+        case 'STARTED_INITIAL_CELEBRATION_DATA':
             return {
                 ...state,
                 isDataFetching: true
@@ -127,6 +138,7 @@ export default (state = celebrationReducerDefaultState, action) => {
             });
             return {
                 ...state,
+                isDataFetching: false,
                 users: usersWithFacts,
                 usersOrder: shuffle(Object.keys(usersWithFacts))
             };
@@ -140,7 +152,18 @@ export default (state = celebrationReducerDefaultState, action) => {
             return {
                 ...state,
                 actionsCount: state.actionsCount + action.count
-            }
+            };
+        case 'UPDATE_USERNAME_INPUT':
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        value: action.value
+                    }
+                }
+            };
         default:
             return state;
     }

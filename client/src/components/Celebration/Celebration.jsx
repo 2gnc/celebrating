@@ -7,10 +7,10 @@ export default class Celebration extends React.Component /*({users, order, start
         this.props.startDataFetching();
     }
     render() {
-        const {users, order} = this.props;
+        const {users, order, isDataFetching, onAnswer, onInputChange, inputsValues} = this.props;
         return (
             <div className='celebration'>
-                {!order.length && <span className='celebration__loading'>Loading...</span>}
+                {isDataFetching && <span className='celebration__loading'>Loading...</span>}
                 {
                     order.map((num) => {
                         return (
@@ -19,6 +19,10 @@ export default class Celebration extends React.Component /*({users, order, start
                                 factId={users[num].fact.factId}
                                 text={users[num].fact.factText}
                                 id={num}
+                                onAnswer={onAnswer}
+                                value={users[num].value}
+                                onChange={onInputChange}
+                                isCheckPending={users[num].isCheckPending}
                             />
                         )
                     })
