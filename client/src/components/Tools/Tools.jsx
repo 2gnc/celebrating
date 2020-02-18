@@ -5,11 +5,12 @@ import {
     faInfoCircle,
     faTerminal,
     faImages,
-    faCode
+    faCode,
+    faSyncAlt
 } from '@fortawesome/free-solid-svg-icons';
 import IconWrapper from '../IconWrapper/IconWrapper';
 
-export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isMobile, onFilesClick, onTerminalClick, onPreviewClick, actionsCount}) => {
+export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isMobile, onFilesClick, onTerminalClick, onPreviewClick, actionsCount, showReset}) => {
     const iconClass = `tools__icon tools__icon_mobile_${isMobile}`;
     return(
         <div className='tools'>
@@ -43,6 +44,12 @@ export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, is
                 cls={iconClass}
                 isActive={isPreviewShown}
             />
+            {isCodeActive && <IconWrapper
+                icon={faSyncAlt}
+                onClickHandler={() => console.log()}
+                cls={iconClass}
+                isActive={showReset}
+            />}
         </div>
     )
 };
