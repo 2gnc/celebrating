@@ -10,7 +10,20 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import IconWrapper from '../IconWrapper/IconWrapper';
 
-export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, isMobile, onFilesClick, onTerminalClick, onPreviewClick, actionsCount, showReset}) => {
+export default (props) => {
+    const {
+        isInfoActive,
+        isCodeActive,
+        isTerminalShown,
+        isPreviewShown,
+        isMobile,
+        onFilesClick,
+        onTerminalClick,
+        onPreviewClick,
+        actionsCount,
+        showReset,
+        onRestartClick
+    } = props;
     const iconClass = `tools__icon tools__icon_mobile_${isMobile}`;
     return(
         <div className='tools'>
@@ -46,7 +59,7 @@ export default ({isInfoActive, isCodeActive, isTerminalShown, isPreviewShown, is
             />
             {isCodeActive && <IconWrapper
                 icon={faSyncAlt}
-                onClickHandler={() => console.log()}
+                onClickHandler={() => onRestartClick()}
                 cls={iconClass}
                 isActive={showReset}
             />}

@@ -163,6 +163,17 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
+        case 'START_RESTARTING_CELEBRATION':
+            return {
+                ...state,
+                isDataFetching: true
+            };
+        case 'SET_RESTARTING_CELEBRATION_ERROR':
+            return {
+                ...state,
+                isDataFetching: false,
+                hasFetchingError: true
+            };
         default:
             return state;
     }

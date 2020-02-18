@@ -77,6 +77,33 @@ export const setInitialDataCelebrationFetchingError = () => ({
     type: 'SET_INITIAL_CELEBRATION_DATA_FETCHING_ERROR'
 });
 
+export const restartCelebration = () => {
+    return async (dispatch) => {
+        try {
+            const data = await fetch('/v1/reset');
+            if (data.status !== 200) {
+                throw new Error(data.status);
+            }
+            const result = await data.json();
+            if (result.status === 'updated') {
+                dispatch(startInitialCelebrationDataFetching())
+            } else {
+                return;
+            }
+        } catch (e) {
+            dispatch(setRestartingCelebrationError());
+        }
+    }
+};
+
+export const startRestartingCelebration = () => ({
+    type: 'START_RESTARTING_CELEBRATION'
+});
+
+export const setRestartingCelebrationError = () => ({
+    type: 'SET_RESTARTING_CELEBRATION_ERROR'
+});
+
 export const updateActionsCount = (count) => ({
     type: 'UPDATE_ACTIONS_COUNT',
     count
