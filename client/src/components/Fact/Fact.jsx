@@ -59,7 +59,7 @@ export default class Fact extends React.PureComponent /* () */ {
         )
     }
     render() {
-        const {text, id, onChange} = this.props;
+        const {text} = this.props;
         return (
             <div className='fact'>
                 {text}

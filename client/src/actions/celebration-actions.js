@@ -82,7 +82,7 @@ export const updateActionsCount = (count) => ({
     count
 });
 
-export const updateUsernameInput = (userId, value) => ({ // userId, value
+export const updateUsernameInput = (userId, value) => ({
     type: 'UPDATE_USERNAME_INPUT',
     userId,
     value

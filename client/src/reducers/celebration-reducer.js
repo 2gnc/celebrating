@@ -101,19 +101,6 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-
-        case 'SET_ANSWER_TRUE':
-            return {
-                ...state,
-                users: {
-                    ...state.users,
-                    [action.userId]: {
-                        ...state.users[action.userId],
-                        isCheckPending: false,
-                        username: action.username
-                    }
-                }
-            };
         case 'SET_ANSWER_ERR', 'SET_ANSWER_FALSE':
             return {
                 ...state,
@@ -127,7 +114,6 @@ export default (state = celebrationReducerDefaultState, action) => {
                 }
             };
         case 'SET_ANSWER_TRUE':
-            
             return {
                 ...state,
                 users: {

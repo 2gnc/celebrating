@@ -21,17 +21,16 @@ module.exports.checkAnswerHandler = wrapAsyncMiddleware(async (req, res, next) =
     const {id, factId} = validationResult.value;
     
     const result = await validateAnswer(id, username);
-    
     let message = '';
     if (result) {
-        const isCelebrated = checkCelebration(id, factId);
+        const isCelebrated = await checkCelebration(id, factId);
         if (isCelebrated) {
             return res.json({
                 result
             });
         }
         message = 'was celebrated';
-        await updtateBase(`facts/${id}`, {isGuessed: true});
+        await updtateBase(`facts/${id}/${factId}`, {isGuessed: true});
     } else {
         username = 'anonymous';
         message = 'didn`t guessed';
