@@ -80,7 +80,12 @@ export const setInitialDataCelebrationFetchingError = () => ({
 export const restartCelebration = () => {
     return async (dispatch) => {
         try {
-            const data = await fetch('/v1/reset');
+            const data = await fetch('/v1/reset', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            });
             if (data.status !== 200) {
                 throw new Error(data.status);
             }

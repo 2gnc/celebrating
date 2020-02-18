@@ -1,30 +1,33 @@
 const {wrapAsyncMiddleware} = require('../utils/wrap-async-middleware');
 const {internal} = require('@hapi/boom');
 const readBase = require('../utils/firebase/read-base');
-const updateBase = require('../utils/firebase/update-base');
+const {updateBase} = require('../utils/firebase/update-base');
+const {setNewFactsBunch} = require('../utils/set-new-facts-bunch');
+const {checkGuessedBunch} = require('../utils/check-guessed-bunch');
 
 module.exports.resetAnswers = wrapAsyncMiddleware(async (_req, res, next) => {
     try {
         // проверяем, все ли отгадано
         const facts = await readBase('facts');
         const factsArr = Object.entries(facts);
-        const hasUnguessed = factsArr.some((entry) => {
-            const [,facts] = entry;
-            return Object.values(facts).some((fact) => {
-                return !fact.isGuessed
+        // проверяем, сколько сейчас отгаданных пользователей из числа отгадываемых
+        const bunch = checkGuessedBunch(factsArr);
+
+        if (bunch.length !== 11) {
+            res.json({
+                updated: false
             })
-        });
-        const status = hasUnguessed ? 405 : 200;
-        if (!hasUnguessed) {
-            for (const fact of factsArr) {
-                const [userId, userFacts] = fact;
-                for (const userFact of Object.entries(userFacts)) {
-                    const [factId] = userFact;
-                    await updateBase(`facts/${userId}/${factId}`, {isGuessed: false, isGuessing: false});
-                }
+            // если их 11 - сбрасываем им isGuessing - TODO - унести это в хелпер?
+        } else {
+            for (const fact of bunch) {
+                await updateBase(`facts/${fact.userId}/${fact.factId}`, {isGuessing: false});
             }
         }
-        res.sendStatus(status);
+        // готовим новый банч
+        const newBunch = await setNewFactsBunch(factsArr);
+        res.json({
+            status: newBunch.length === 1 ? 'updated' : 'not-updated'
+        });
     } catch (e) {
         console.error(e);
         throw internal();

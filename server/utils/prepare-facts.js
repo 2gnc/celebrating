@@ -1,5 +1,5 @@
 const {internal} = require('@hapi/boom');
-const updateBase = require('./firebase/update-base');
+const {updateBase} = require('./firebase/update-base');
 const readBase = require('./firebase/read-base');
 
 const prepareFacts = async (facts) => {
