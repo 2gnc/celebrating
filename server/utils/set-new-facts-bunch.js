@@ -7,12 +7,10 @@ module.exports.setNewFactsBunch = async (entriesArr) => {
     const bunch = [];
     entriesArr.forEach((entry) => {
         const [userId, facts] = entry;
-        // console.log(facts)
         const [factEntry] = Object.entries(facts).filter((factEntry) => {
             const [,factBody] = factEntry;
             return !factBody.isGuessed && !factBody.isGuessing
         });
-        // console.log(factEntry);
         if (factEntry) {
             bunch.push({userId, factId: factEntry[0]})
         }
@@ -22,11 +20,20 @@ module.exports.setNewFactsBunch = async (entriesArr) => {
             for (const item of bunch) {
                     await updateBase(`facts/${item.userId}/${item.factId}`, {isGuessing: true});
                 };
-                return bunch;
+                return true;
             } else {
-                // TODO тут сбрасываем у всех фактов все в false, делаем и возвращаем новый банч
+                // TODO тут сбрасываем у всех фактов все в false, возвращаем true
+                for (const entry of entriesArr) {
+                    const [userId, facts] = entry;
+                    for (const fact of Object.entries(facts)) {
+                        const [factId, factBody] = fact;
+                        await updateBase(`facts/${userId}/${factId}`, {isGuessing: false, isGuessed: false});
+                    }
+                }
+                return true;
             }
-    } catch (e) {
-        throw internal(e)
+    } catch (err) {
+        console.log(err);
+        return false;
     }
 }

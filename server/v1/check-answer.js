@@ -3,7 +3,7 @@ const Joi = require('@hapi/joi');
 const {wrapAsyncMiddleware} = require('../utils/wrap-async-middleware');
 const validateAnswer = require('../utils/validate-answer');
 const writeBase = require('../utils/firebase/write-base');
-const updtateBase = require('../utils/firebase/update-base');
+const {updateBase} = require('../utils/firebase/update-base');
 const checkCelebration = require('../utils/firebase/check-celebration');
 
 const requestSchema = Joi.object({
@@ -30,7 +30,7 @@ module.exports.checkAnswerHandler = wrapAsyncMiddleware(async (req, res, next) =
             });
         }
         message = 'was celebrated';
-        await updtateBase(`facts/${id}/${factId}`, {isGuessed: true});
+        await updateBase(`facts/${id}/${factId}`, {isGuessed: true});
     } else {
         username = 'anonymous';
         message = 'didn`t guessed';

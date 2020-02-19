@@ -17,16 +17,16 @@ module.exports.resetAnswers = wrapAsyncMiddleware(async (_req, res, next) => {
             res.json({
                 updated: false
             })
-            // если их 11 - сбрасываем им isGuessing - TODO - унести это в хелпер?
+            // если их 11 - сбрасываем им isGuessing
         } else {
             for (const fact of bunch) {
                 await updateBase(`facts/${fact.userId}/${fact.factId}`, {isGuessing: false});
             }
         }
         // готовим новый банч
-        const newBunch = await setNewFactsBunch(factsArr);
+        const result = await setNewFactsBunch(factsArr);
         res.json({
-            status: newBunch.length === 1 ? 'updated' : 'not-updated'
+            status: result === true ? 'updated' : 'not-updated'
         });
     } catch (e) {
         console.error(e);
