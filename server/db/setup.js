@@ -1,5 +1,5 @@
 const firebase = require('firebase');
-const {firebaseConfig} = require('../db/dev-settings');
+const {firebaseConfig} = process.env.NODE_ENV === 'production' ? {} : require('../db/dev-settings');
 const {
     apiKey,
     authDomain,
