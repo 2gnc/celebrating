@@ -40,3 +40,9 @@ export default (state = uiReducerDefaultState, action) => {
             return state;
     }
 };
+
+
+// export const updateUsernameInput = (data) => ({ // userId, value
+//     type: 'UPDATE_USERNAME_INPUT',
+//     data
+// })

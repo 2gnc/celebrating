@@ -4,4 +4,26 @@
 
 .celebration__loading {
     color: var(--color-green);
+    margin-top: 3rem;
+    animation-name: blink;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blink {
+    0% {
+        color: var(--color-green);
+        transform: rotate(-30deg);
+        opacity: 1
+    }
+    50% {
+        color: var(--color-white);
+        transform: rotate(30deg);
+        opacity: 0.5;
+    }
+    100% {
+        color: var(--color-green);
+        transform: rotate(-30deg);
+        opacity: 1;
+    }
 }

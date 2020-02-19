@@ -1,53 +1,6 @@
 import shuffle from '../helpers/shuffleArr';
 import mapFactsToUsers from '../helpers/mapsFactsToUsers';
 
-const dummyFacts = {
-    '01' :{
-        factId: '01-1',
-        factText: 'Lorem ipsum dolor sit amet.'
-    },
-    '02': {
-        factId: '02-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.'
-    },
-    '03': {
-        factId: '03-2',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, porro.'
-    },
-    '04': {
-        factId: '04-3',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'
-    },
-    '05': {
-        factId: '05-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, reiciendis nihil.'
-    },
-    '06': {
-        factId: '06-1',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing.'
-    },
-    '07': {
-        factId: '07-2',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti harum veritatis corporis.'
-    },
-    '08': {
-        factId: '08-2',
-        factText: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis quae quia aliquam!'
-    },
-    '09': {
-        factId: '09-2',
-        factText: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, harum.'
-    },
-    '10': {
-        factId: '10-2',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, fugit!'
-    },
-    '11': {
-        factId: '11-1',
-        factText: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem, fugit!vv'
-    }
-};
-
 const celebrationReducerDefaultState = {
     isDataFetching: false,
     hasFetchingError: false,
@@ -58,74 +11,85 @@ const celebrationReducerDefaultState = {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: 'username' //
+            username: undefined, 
+            value: ''
         },
         '02': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '03': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '04': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '05': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '06': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '07': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '08': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '09': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '10': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         },
         '11': {
             isCheckPending: false,
             error: false,
             fact: undefined,
-            username: undefined
+            username: undefined,
+            value: ''
         }
     }
 }
 
 export default (state = celebrationReducerDefaultState, action) => {
     switch (action.type) {
-        case 'START_ANSWER_CHECK':
+        case 'STARTED_ANSWER_CHECK':
             return {
                 ...state,
                 users: {
@@ -137,20 +101,7 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-
-        case 'SET_ANSWER_TRUE':
-            return {
-                ...state,
-                users: {
-                    ...state.users,
-                    [action.userId]: {
-                        ...state.users[action.userId],
-                        isCheckPending: false,
-                        username: action.username
-                    }
-                }
-            };
-        case 'SET_ANSWER_ERR':
+        case 'SET_ANSWER_ERR', 'SET_ANSWER_FALSE':
             return {
                 ...state,
                 users: {
@@ -162,18 +113,31 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-        case 'START_INITIAL_CELEBRATION_DATA_FETCHING':
+        case 'SET_ANSWER_TRUE':
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        isCheckPending: false,
+                        username: action.username
+                    }
+                }
+            }
+        case 'STARTED_INITIAL_CELEBRATION_DATA':
             return {
                 ...state,
                 isDataFetching: true
             };
-        case 'SET_INITIAL_CELEBRATION_DATA': //data, ожидаем {facts: {}, guessedUsers: [{id: '01', username: 'tgnc'}]}
-            const usersWithFacts = mapFactsToUsers(action.data.facts || dummyFacts, celebrationReducerDefaultState.users);
+        case 'SET_INITIAL_CELEBRATION_DATA':
+            const usersWithFacts = mapFactsToUsers(action.data.facts, celebrationReducerDefaultState.users);
             action.data.guessedUsers.forEach((user) => {
-                usersWithFacts[user.id].username = user.username
+                usersWithFacts[user.id].username = user.username;
             });
             return {
                 ...state,
+                isDataFetching: false,
                 users: usersWithFacts,
                 usersOrder: shuffle(Object.keys(usersWithFacts))
             };
@@ -187,7 +151,29 @@ export default (state = celebrationReducerDefaultState, action) => {
             return {
                 ...state,
                 actionsCount: state.actionsCount + action.count
-            }
+            };
+        case 'UPDATE_USERNAME_INPUT':
+            return {
+                ...state,
+                users: {
+                    ...state.users,
+                    [action.userId]: {
+                        ...state.users[action.userId],
+                        value: action.value
+                    }
+                }
+            };
+        case 'START_RESTARTING_CELEBRATION':
+            return {
+                ...state,
+                isDataFetching: true
+            };
+        case 'SET_RESTARTING_CELEBRATION_ERROR':
+            return {
+                ...state,
+                isDataFetching: false,
+                hasFetchingError: true
+            };
         default:
             return state;
     }

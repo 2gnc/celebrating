@@ -1,14 +1,12 @@
-import React from 'react';
 import './Preview.css';
+import React from 'react';
+import getGuessedUsers from '../../helpers/getGuessedUsers';
 
 export default ({users}) => {
     return (
         <div className='preview'>
             {
-                Object.entries(users)
-                    .filter((user) => user[1].username)
-                    .map((user) => <div key={user[1].username}>{user[1].username}</div>
-                    )
+                getGuessedUsers(users)
             }
         </div>
     )
