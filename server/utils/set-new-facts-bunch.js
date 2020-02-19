@@ -26,7 +26,7 @@ module.exports.setNewFactsBunch = async (entriesArr) => {
                 for (const entry of entriesArr) {
                     const [userId, facts] = entry;
                     for (const fact of Object.entries(facts)) {
-                        const [factId, factBody] = fact;
+                        const [factId] = fact;
                         await updateBase(`facts/${userId}/${factId}`, {isGuessing: false, isGuessed: false});
                     }
                 }

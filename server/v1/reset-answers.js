@@ -25,7 +25,7 @@ module.exports.resetAnswers = wrapAsyncMiddleware(async (_req, res, next) => {
         }
         // готовим новый банч
         const result = await setNewFactsBunch(factsArr);
-        res.json({
+        return res.json({
             status: result === true ? 'updated' : 'not-updated'
         });
     } catch (e) {

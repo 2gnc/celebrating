@@ -133,7 +133,7 @@ export default (state = celebrationReducerDefaultState, action) => {
         case 'SET_INITIAL_CELEBRATION_DATA':
             const usersWithFacts = mapFactsToUsers(action.data.facts, celebrationReducerDefaultState.users);
             action.data.guessedUsers.forEach((user) => {
-                usersWithFacts[user.id].username = user.username
+                usersWithFacts[user.id].username = user.username;
             });
             return {
                 ...state,

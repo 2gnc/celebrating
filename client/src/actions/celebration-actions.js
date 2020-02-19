@@ -1,9 +1,3 @@
-// export const startAnswerCheck = (userId, factId, username) => ({ //string, string
-//     type: 'START_ANSWER_CHECK',
-//     userId,
-//     factId,
-//     username
-// });
 export const startAnswerCheck = (userId, factId, username) => {
     return async (dispatch) => {
         try {
@@ -80,6 +74,7 @@ export const setInitialDataCelebrationFetchingError = () => ({
 export const restartCelebration = () => {
     return async (dispatch) => {
         try {
+            dispatch(startedInitialCelebrationData());
             const data = await fetch('/v1/reset', {
                 method: 'POST',
                 headers: {

@@ -31,9 +31,12 @@ const prepareFacts = async (facts) => {
                 continue;
             }
             if (unguessedFacts.length) {
+                const [factId,fact] = unguessedFacts[0];
                 // берем первый неугаданный
                 // добавляем в объект
-                pickedFacts[userId] = unguessedFacts[0];
+                pickedFacts[userId] = fact;
+                pickedFacts[userId].factId = factId;
+                pickedFacts[userId].isGuessing = true;
                 // меняем ему статус в БД
                 await updateBase(`facts/${userId}/${unguessedFacts[0][0]}`, {isGuessing: true});
             }

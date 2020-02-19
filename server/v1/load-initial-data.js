@@ -11,7 +11,7 @@ module.exports.loadInitialData = wrapAsyncMiddleware(async (_req, res) => {
             throw notFound();
         }
         const preparedFacts = await prepareFacts(facts);
-        res.json({
+        return res.json({
             facts: preparedFacts.pickedFacts,
             guessedUsers: preparedFacts.guessedUsers
         });
