@@ -1,23 +1,14 @@
 const firebase = require('firebase');
 const {firebaseConfig} = process.env.NODE_ENV === 'production' ? {} : require('../db/dev-settings');
-const {
-    apiKey,
-    authDomain,
-    databaseURL,
-    projectId,
-    storageBucket,
-    messagingSenderId,
-    appId
-} = firebaseConfig;
 
 const config = {
-    apiKey: process.env.FIREBASE_API_KEY || apiKey,
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN || authDomain,
-    databaseURL: process.env.FIREBASE_DATABASE_URL || databaseURL,
-    projectId: process.env.FIREBASE_PROJECT_ID || projectId,
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET || storageBucket,
-    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || messagingSenderId,
-    appId: process.env.FIREBASE_APP_ID || appId,
+    apiKey: process.env.FIREBASE_API_KEY || firebaseConfig.apiKey,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN || firebaseConfig.authDomain,
+    databaseURL: process.env.FIREBASE_DATABASE_URL || firebaseConfig.databaseURL,
+    projectId: process.env.FIREBASE_PROJECT_ID || firebaseConfig.projectId,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET || firebaseConfig.storageBucket,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID || firebaseConfig.messagingSenderId,
+    appId: process.env.FIREBASE_APP_ID || firebaseConfig.appId,
     measurementId: process.env.FIREBASE_MEASUREMENT_ID
 };
 
