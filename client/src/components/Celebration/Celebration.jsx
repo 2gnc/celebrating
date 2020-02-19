@@ -10,9 +10,9 @@ export default class Celebration extends React.Component /*({users, order, start
         const {users, order, isDataFetching, onAnswer, onInputChange} = this.props;
         return (
             <div className='celebration'>
-                {isDataFetching && <span className='celebration__loading'>Loading...</span>}
+                {isDataFetching && <div className='celebration__loading'>Loading...</div>}
                 {
-                    order.map((num) => {
+                    !isDataFetching && order.map((num) => {
                         return (
                             <Fact
                                 key={num}
