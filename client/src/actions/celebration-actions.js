@@ -1,6 +1,9 @@
+import {ws} from '../socket/socket';
+
 export const startAnswerCheck = (userId, factId, username) => {
     return async (dispatch) => {
         try {
+            ws.send(JSON.stringify(startedAnswerCheck(userId)));
             dispatch(startedAnswerCheck(userId));
             const data = await fetch(`/v1/check_answer?id=${userId}&factId=${factId}&username=${username}`);
             if (data.status !== 200) {
