@@ -1,9 +1,9 @@
-import {ws} from '../socket/socket';
+import {broadcastAction} from '../socket/socket';
 
 export const startAnswerCheck = (userId, factId, username) => {
     return async (dispatch) => {
         try {
-            ws.send(JSON.stringify(startedAnswerCheck(userId)));
+            broadcastAction(startedAnswerCheck(userId));
             dispatch(startedAnswerCheck(userId));
             const data = await fetch(`/v1/check_answer?id=${userId}&factId=${factId}&username=${username}`);
             if (data.status !== 200) {
@@ -11,8 +11,10 @@ export const startAnswerCheck = (userId, factId, username) => {
             }
             const {result} = await data.json();
             if (!result) {
+                broadcastAction(setAnswerFalse(userId, factId));
                 dispatch(setAnswerFalse(userId, factId));
             } else {
+                broadcastAction(setAnswerTrue(userId, username));
                 dispatch(setAnswerTrue(userId, username));
             }
         } catch (err) {
