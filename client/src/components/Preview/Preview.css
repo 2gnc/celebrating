@@ -1,3 +1,18 @@
 .preview {
 
 }
+
+.preview__heading {
+    color: var(--color-green);
+    font-size: var(--size-xl);
+    text-align: center;
+}
+
+.preview__box {
+    display: flex;
+}
+
+.preview__user {
+    width: 30%;
+    
+}

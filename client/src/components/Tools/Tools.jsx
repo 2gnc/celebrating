@@ -62,6 +62,7 @@ export default (props) => {
                 onClickHandler={() => onRestartClick()}
                 cls={iconClass}
                 isActive={showReset}
+                blockable
             />}
         </div>
     )
