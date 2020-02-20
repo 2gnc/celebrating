@@ -1,9 +1,9 @@
 const {internal} = require('@hapi/boom');
 const {db} = require('../../db/setup');
 
-const readBase = async (destination) => {
+const readBase = async (destination, limit) => {
     try {
-        const data = await db.ref(destination).once('value');
+        const data = limit ? await db.ref(destination).limitToLast(limit).once('value') : await db.ref(destination).once('value');
         return data ? data.val() : null;
     }
     catch (err) {

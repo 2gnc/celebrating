@@ -4,6 +4,7 @@ import './Terminal.css';
 
 export default class Terminal extends React.Component {
     getLog = () => {
+        console.log(this.props)
         return this.props.log.map((item) => {
             const [name, ...message] = item.message.split(' ');
             const date = DateTime.fromMillis(item.timestamp).toHTTP();

@@ -1,6 +1,7 @@
 import {initiatedStore} from '../index';
 import {host} from '../helpers/getHost';
 import {startedAnswerCheck, setAnswerFalse, setAnswerTrue} from '../actions/celebration-actions';
+import {updateLog} from '../actions/log-actions';
 
 const ws = new WebSocket(host);
 
@@ -20,6 +21,9 @@ ws.onmessage = ({data}) => {
         case 'SET_ANSWER_TRUE':
             console.log(action);
             return initiatedStore.dispatch(setAnswerTrue(action.userId, action.username));
+        case 'UPDATE_LOG':
+            console.log(action.message);
+            return initiatedStore.dispatch(updateLog(action.message))
         default:
             return;
     }
