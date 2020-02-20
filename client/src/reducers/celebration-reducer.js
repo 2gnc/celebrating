@@ -101,7 +101,8 @@ export default (state = celebrationReducerDefaultState, action) => {
                     }
                 }
             };
-        case 'SET_ANSWER_ERR', 'SET_ANSWER_FALSE':
+        case 'SET_ANSWER_ERR':
+        case 'SET_ANSWER_FALSE':
             return {
                 ...state,
                 users: {

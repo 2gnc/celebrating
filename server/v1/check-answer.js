@@ -35,7 +35,7 @@ module.exports.checkAnswerHandler = wrapAsyncMiddleware(async (req, res, next) =
         username = 'anonymous';
         message = 'didn`t guessed';
     }
-    await writeBase('logs', {username, message});
+    await writeBase('logs', {message: `${username} ${message}`});
     return res.json({
         result
     });

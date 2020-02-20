@@ -3,6 +3,7 @@ const express = require('express');
 const wakeUp = require('./utils/wake-up');
 const {v1Router} = require('./v1');
 require('./db/setup');
+require('./db/socket');
 
 const port = process.env.PORT || 5555;
 const isProd = process.env.NODE_ENV === 'production';
@@ -11,11 +12,11 @@ const URL = 'https://celebration-2020.herokuapp.com/';
 const publicPath = isProd ? path.join(__dirname, '..', 'public') : path.join(__dirname, '..', 'client', 'public');
 
 const app = express()
-    .use(express.static(publicPath))
-    .use('/v1', v1Router)
-    .get('/', (_req, res) => {
-        res.sendFile(path.join(publicPath, 'index.html'));
-    });
+.use(express.static(publicPath))
+.use('/v1', v1Router)
+.get('/', (_req, res) => {
+    res.sendFile(path.join(publicPath, 'index.html'));
+});
 
 app.listen(port, listenCallback);
 

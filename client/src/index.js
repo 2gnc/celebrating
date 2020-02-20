@@ -5,9 +5,11 @@ import store from './store/store';
 import './index.css';
 import App from './components/App/App.jsx';
 import * as serviceWorker from './serviceWorker';
+import './socket/socket';
 
+export const initiatedStore = store();
 ReactDOM.render(
-    <Provider store={store()}>
+    <Provider store={initiatedStore}>
         <App />
     </Provider>,
     document.getElementById('root')

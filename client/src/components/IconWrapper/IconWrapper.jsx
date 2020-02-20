@@ -5,7 +5,7 @@ import './IconWrapper.css';
 export default ({icon, cls, onClickHandler, isActive, size = '2x', counter}) => {
     const additionalCls = isActive ? 'icon-wrapper_active' : '';
     return (
-        <div onClick={onClickHandler} className={`icon-wrapper__button ${cls}`}>
+        <div onClick={isActive ? onClickHandler : undefined} className={`icon-wrapper__button ${cls}`}>
             <FontAwesomeIcon
                 icon={icon}
                 size={size}
