@@ -1,7 +1,7 @@
 const WebSocket = require('ws');
 const {prepareLog} = require('../utils/prepare-log');
 
-const wss = new WebSocket.Server({ port: process.env.PORT || 8080 });
+const wss = new WebSocket.Server({ port: 9797 });
 wss.on('connection', function (ws) {
     ws.on('message', async function (message) {
         for (const client of wss.clients) {
