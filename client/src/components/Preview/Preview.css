@@ -1,3 +1,27 @@
 .preview {
 
 }
+
+.preview__heading {
+    color: var(--color-green);
+    font-size: var(--size-xl);
+    text-align: center;
+}
+
+.preview__box {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 7rem;
+    justify-content: space-evenly   ;
+}
+
+.preview__user {
+    width: 30%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--color-green);
+}
