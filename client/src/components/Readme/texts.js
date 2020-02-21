@@ -1,8 +1,12 @@
 export default [
-    'Text one',
-    'L2orem ipsum dolor sit amet consectetur adipisicing elit. Libero fuga laborum dolores',
+    'Мыж программисты, и поэтому мы решили поздравить вас технологично =)',
     '',
-    'L3orem ipsum dolor sit amet consectetur adipisicing elit. Libero fuga laborum dolores dicta minus ut sint facere impedit? Consequatur nihil optio fugit doloremque perspiciatis excepturi nobis repellendus eligendi placeat ullam.',
+    'В честь праздника мы подготовили для вас небольшой спецпроект, в котором рассказали, какие вы клёвые и почему нам нравится с вами работать.',
     '',
-    'L4orem ipsum dolor sit amet consectetur adipisicing elit. Libero fuga laborum dolores dicta minus ut sint facere impedit? Consequatur nihil optio fugit doloremque perspiciatis excepturi nobis repellendus eligendi placeat ullam.'
+    'Это мини - игра, правила простые: ',
+    '',
+    '- догадайтесь, о ком речь и впишите свой логин',
+    '- фактов больше одного, так что игру можно перезапустить, но только если каждый получил свое поздравление',
+    '',
+    'И да, тут тоже есть куки ¯\\_(ツ)_/¯'
 ];
