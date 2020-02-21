@@ -1,6 +1,12 @@
 import {initiatedStore} from '../index';
 import {host} from '../helpers/getHost';
-import {startedAnswerCheck, setAnswerFalse, setAnswerTrue} from '../actions/celebration-actions';
+import {
+    startedAnswerCheck,
+    setAnswerFalse,
+    setAnswerTrue,
+    // startedInitialCelebrationData,
+    setInitialCelebrationData
+} from '../actions/celebration-actions';
 import {updateLog} from '../actions/log-actions';
 
 const ws = new WebSocket(host);
@@ -19,7 +25,11 @@ ws.onmessage = ({data}) => {
         case 'SET_ANSWER_TRUE':
             return initiatedStore.dispatch(setAnswerTrue(action.userId, action.username));
         case 'UPDATE_LOG':
-            return initiatedStore.dispatch(updateLog(action.message))
+            return initiatedStore.dispatch(updateLog(action.message));
+        // case 'STARTED_INITIAL_CELEBRATION_DATA':
+        //     return initiatedStore.dispatch(startedInitialCelebrationData());
+        case 'SET_INITIAL_CELEBRATION_DATA':
+            return initiatedStore.dispatch(setInitialCelebrationData(action.data));
         default:
             return;
     }

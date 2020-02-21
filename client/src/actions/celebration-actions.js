@@ -49,15 +49,18 @@ export const setAnswerTrue = (userId, username) => ({
 export const startInitialCelebrationDataFetching = () => {
     return async (dispatch) => {
         try {
+            // broadcastAction(startedInitialCelebrationData());
             dispatch(startedInitialCelebrationData());
             const data = await fetch('/v1/initialize');
             if (data.status !== 200) {
                 throw new Error(data.status);
             }
             const result = await data.json();
+            broadcastAction(setInitialCelebrationData(result));
             return dispatch(setInitialCelebrationData(result));
         }
         catch (err) {
+            console.log(err)
             return dispatch(setInitialDataCelebrationFetchingError());
         }
     }
