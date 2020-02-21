@@ -13,7 +13,7 @@ module.exports.resetAnswers = wrapAsyncMiddleware(async (_req, res, next) => {
         // проверяем, сколько сейчас отгаданных пользователей из числа отгадываемых
         const bunch = checkGuessedBunch(factsArr);
 
-        if (bunch.length !== 11) {
+        if (bunch.length !== 12) {
             res.json({
                 updated: false
             })

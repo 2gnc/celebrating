@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
     isPreviewShown: state.ui.isPreviewShown,
     isMobile: platform && platform.type === 'mobile',
     actionsCount: state.celebration.actionsCount,
-    showReset: !state.celebration.isDataFetching && getQuessedUsers(state.celebration.users).length === 11
+    showReset: !state.celebration.isDataFetching && getQuessedUsers(state.celebration.users).length === 12
 });
 
 const mapDispatchToProps = (dispatch) => ({
